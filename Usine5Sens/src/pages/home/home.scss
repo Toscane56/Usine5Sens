@@ -1,13 +1,37 @@
 page-home {
-	ion-scroll {
-		white-space: nowrap;
-		height: 100px;
-	}
+.scroll-bar-indicator
+{
+	display: none;
+}
+
+
 	
-	ion-card {
-		display: inline-block;
-		&.card-md, &.card-ios{
-			width: calc(50% - 20px);	
+		ion-scroll {
+			white-space: nowrap;
+			height: 100px;
+			ion-card {
+				display: inline-block;
+				&.card-md, &.card-ios{
+					width: calc(200px - 20px);
+					margin: 16px;			
+				}
+			}
+		}	
+
+	
+	ion-row.atelier{
+		display:block;
+		
+		a{
+			font-size: 16px;
+			display:inline;
+			color:black;
+			text-align:right;	
+			float:right;
+			ion-icon{
+				font-size: 13px;
+				margin-left: 10px;
+			}
 		}
 	}
 }

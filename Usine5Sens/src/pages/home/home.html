@@ -1,48 +1,49 @@
-<ion-content padding overflow-scroll="true">
-  <ion-grid class="container">
-      <ion-row>
-          <button ion-button block class="button-event" (click)="pushEvent()"><ion-icon name="icon-wall-clock"></ion-icon> bouton<ion-icon name="icon-chevron"></ion-icon></button>
-      </ion-row>
-      <ion-row padding class="title">
+<ion-content overflow-scroll="true">
+	<ion-grid class="container">
+		<ion-row padding class="title">
           <h1></h1>
           <p class="analyseMessage"></p>
-      </ion-row>
+		</ion-row>
 
-      <ion-row padding class="mesRoutines">
-        <ion-col col-6 class="">
-          <h3>Titre</h3>
-        </ion-col>
-        <ion-col col-6>
-          <button ion-button block (click)="creerScene()">bouton</button>
-        </ion-col>
-      </ion-row>      
-        <ion-scroll scrollX="true">
-
-        <ion-card>
-            <ion-card-content>
-                content
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <ion-card-content>
-                content
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <ion-card-content>
-                content
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <ion-card-content>
-                content
-            </ion-card-content>
-        </ion-card>
-		
+		<ion-row padding class="exposition">
+			<ion-col col-12>
+				<h2>Exposition</h2>
+			</ion-col>
+			<ion-col col-12 class="">
+				<ion-card>
+					<ion-card-content>
+						content
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+		<ion-row  padding class="atelier">
+			<ion-col col-12>
+				<h2>Ateliers du jour</h2>
+			</ion-col>
+		</ion-row>
+		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
+			<ion-card>
+				<ion-card-content>
+					content
+				</ion-card-content>
+			</ion-card>
+			<ion-card>
+				<ion-card-content>
+					content
+				</ion-card-content>
+			</ion-card>
+			<ion-card>
+				<ion-card-content>
+					content
+				</ion-card-content>
+			</ion-card>
 		</ion-scroll>
-	<ion-row>
-	<button class="boutton-menuP" (click)="pushMenu()"><img  alt="menu principal" src="../assets/button/menu.png"/></button>
-	</ion-row>
+		<ion-row  padding class="atelier">
+			<a  (click)="atelier()">
+			Voir d’autres ateliers <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+			</a>
+		</ion-row>
 	</ion-grid>
   
 </ion-content>
