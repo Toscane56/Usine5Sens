@@ -1,2 +1,2 @@
 <?php
-	$db = new mysqli("localhost","root","","homright");
+	$db = new mysqli("localhost","root","","usine_sens");
