@@ -1,0 +1,85 @@
+<ion-content padding overflow-scroll="true" class="HomieGood">
+  <div class="fond-vague"><img class="vague" src="../assets/imgs/vague_fine.png"/></div>
+  <ion-grid class="container">
+      <ion-row>
+          <button ion-button block class="button-event" (click)="pushEvent()"><ion-icon name="icon-wall-clock"></ion-icon> Énergie verte | 16:02 <ion-icon name="icon-chevron"></ion-icon></button>
+      </ion-row>
+      <ion-row padding class="title">
+          <h1></h1>
+          <p class="analyseMessage"></p>
+      </ion-row>
+  		<ion-row class="mascotte" >
+      		<img class="en-forme" style="display: block !important;" alt="Homie est en forme" src="../assets/imgs/homie_good.png"/>
+          <img class="malade" alt="Homie est malade" src="../assets/imgs/homie_malade.png"/>
+      </ion-row>
+
+      <ion-row class="mascotte" (click)="presentToast()" >
+          <img class="en-forme reflexion" alt="Homie réflechit" src="../assets/imgs/recherche_compteur.png" style="margin-bottom: 20px;" />
+          <img class="malade" alt="Homie est malade" src="../assets/imgs/homie_malade.png"/>
+
+      </ion-row>
+
+      <ion-row>
+		    <ion-col col-12 class="valeurs-conso text-center">
+				  <!-- <p>Analyse en cours...</p> <p>Vos premières données seront disponibles dans une heure.</p> -->
+          <ion-col col-12 class="text-center conso-nb" >
+            <div class="euros">2.7<span>€</span></div>
+            <div class="kwh">17<span>kwh</span></div>
+            <div style="font-weight: 700;">consommés depuis ce matin</div>
+          </ion-col>
+
+          <ion-col col-12 class="text-center conso-nb" >
+            <div class="kwh specifites">Analyse en cours</div>
+            <div class="specifites2">Vos premières données ne sont pas encore disponibles.</div>
+          </ion-col>
+
+          <button>
+            <ion-icon name="icon-chevron"></ion-icon>
+          </button>
+		    </ion-col>
+		  </ion-row>
+      <ion-row padding class="mesRoutines">
+        <ion-col col-6 class="">
+          <h3>Mes routines</h3>
+        </ion-col>
+
+      </ion-row>
+    <ion-row class="mesRoutines scroll-bord">
+        <ion-col col-12 >
+          <!-- <p>Créez vos routines quotidiennes pour économiser du temps et de l’argent.</p> -->
+          <ion-scroll scrollX="true" >
+            <ion-list class="volets" radio-group>
+              <ion-item class="matin">
+                <ion-radio value="matin" (click)="updateRoutines(matin)" checked="true" ></ion-radio>
+              </ion-item>
+              <ion-item class="absent">
+                <ion-radio value="absent" (click)="updateRoutines(absent)"></ion-radio>
+              </ion-item>
+              <ion-item  class="nuit">
+                <ion-radio value="nuit" (click)="updateRoutines(nuit)"></ion-radio>
+              </ion-item>
+            </ion-list>
+          </ion-scroll>
+        </ion-col>
+        <ion-col col-12 >
+          <p>
+            Ajoutez des appareils connectés dans votre maison et créez des routines pour économiser du temps et de l’argent.
+          </p>
+          <ion-scroll scrollX="true" class="transparent">
+            <ion-list class="volets" radio-group>
+              <ion-item class="matin" (click)="activerSceneImpossible()">
+                <ion-radio value="matin"  disabled></ion-radio>
+              </ion-item>
+              <ion-item class="absent" (click)="activerSceneImpossible()">
+                <ion-radio value="absent"  disabled></ion-radio>
+              </ion-item>
+              <ion-item  class="nuit" (click)="activerSceneImpossible()">
+                <ion-radio value="nuit"  disabled></ion-radio>
+              </ion-item>
+            </ion-list>
+          </ion-scroll>
+        </ion-col>
+    </ion-row>
+	</ion-grid>
+  <button class="boutton-menuP" (click)="pushMenu()"><img  alt="menu principal" src="../assets/button/menu.png"/></button>
+</ion-content>
