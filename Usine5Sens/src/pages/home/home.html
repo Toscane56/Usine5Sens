@@ -1,49 +1,49 @@
 <ion-content overflow-scroll="true">
-	<ion-grid class="container">
-		<ion-row padding class="title">
-          <h1></h1>
-          <p class="analyseMessage"></p>
+	<ion-grid col-2 class="menu">
+		<ion-row class="menu-principal">
+          <a><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
+		</ion-row>	
+		<ion-row class="menu-vertical">
+          <a>visite</a>
+		</ion-row>		
+		<ion-row class="menu-vertical">
+          <a>atelier</a>
+		</ion-row>		
+	</ion-grid>
+	<ion-grid class="container" col-10>	
+		<ion-row class="circle">
+          <!-- <h1>Bonjour</h1> -->
 		</ion-row>
-
-		<ion-row padding class="exposition">
+		<ion-row class="exposition">
 			<ion-col col-12>
-				<h2>Exposition</h2>
+				<h2>Expositions</h2>
 			</ion-col>
 			<ion-col col-12 class="">
-				<ion-card>
-					<ion-card-content>
-						content
-					</ion-card-content>
+				<p class="date">2 janvier - 2 mars</p>
+				<ion-card class="card-background-page">
+					<img src="../assets/imgs/water.jpg"/>
+					<div class="card-title">L'eau</div>
 				</ion-card>
 			</ion-col>
-		</ion-row>
-		<ion-row  padding class="atelier">
-			<ion-col col-12>
-				<h2>Ateliers du jour</h2>
+			<ion-col col-12 class="">
+				<p  class="presentation">Née sur le site de l’ancienne usine de pompage d’Eau de Seine, l’Usine des 5 Sens tient à coeur de vous faire découvrir l'eau dans tous ses états et dans tous les sens !</p>
 			</ion-col>
 		</ion-row>
+		<ion-row class="atelier">
+				<h2>Ateliers <span>du jour</span></h2>
+		</ion-row>
 		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
-			<ion-card>
-				<ion-card-content>
-					content
-				</ion-card-content>
-			</ion-card>
-			<ion-card>
-				<ion-card-content>
-					content
-				</ion-card-content>
-			</ion-card>
-			<ion-card>
-				<ion-card-content>
-					content
-				</ion-card-content>
+			<ion-card *ngFor="let workshop of workshops" id="{{workshop.id}}" class="card-background-page">
+				<img src="../assets/imgs/water.jpg"/>
+				<div class="card-date">{{workshop.startTime}}</div>
+				<div class="card-title">{{workshop.name}}</div>
 			</ion-card>
 		</ion-scroll>
-		<ion-row  padding class="atelier">
-			<a  (click)="atelier()">
-			Voir d’autres ateliers <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
-			</a>
-		</ion-row>
+		<!-- <ion-row class="atelier">
+			<a> 
+			<!-- Voir d’autres ateliers <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon> -->
+			<!-- </a> 
+		</ion-row>-->
 	</ion-grid>
   
 </ion-content>

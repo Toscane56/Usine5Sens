@@ -86,3 +86,53 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@font-face{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 200;
+	src : url('../assets/fonts/poppins/Poppins-Light.ttf')
+}
+
+@font-face{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 300;
+	src : url('../assets/fonts/poppins/Poppins-Regular.ttf')
+}
+
+@font-face{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	src : url('../assets/fonts/poppins/Poppins-Medium.ttf')
+}
+
+@font-face{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	src : url('../assets/fonts/poppins/Poppins-Bold.ttf')
+}
+
+@font-face{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 700;
+	src : url('../assets/fonts/poppins/Poppins-ExtraBold.ttf')
+}
+
+@font-face{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	src : url('../assets/fonts/poppins/Poppins-Black.ttf')
+}
+
+
+$font-family-base:"Poppins";
+body{
+	font-family: "Poppins" !important;
+	font-weight: 400;
+}

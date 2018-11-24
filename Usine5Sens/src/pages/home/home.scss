@@ -1,24 +1,176 @@
 page-home {
-.scroll-bar-indicator
-{
-	display: none;
-}
-
-
 	
-		ion-scroll {
-			white-space: nowrap;
-			height: 100px;
-			ion-card {
-				display: inline-block;
-				&.card-md, &.card-ios{
-					width: calc(200px - 20px);
-					margin: 16px;			
-				}
+	body{
+		font-family: "Poppins";
+		font-weight: 400;
+	}
+
+	ion-row.circle{
+		display: block;
+		background: #3de5c2;
+		width: 325px;
+		height: 285px;
+		position: absolute;
+		right: -90px;
+		top: -200px;
+		z-index: -1;
+		border-radius: 100%;
+		h1{
+			top: 160px;
+			right: 110px;
+			position:relative;
+			font-family: "Poppins";
+			text-transform:uppercase;
+			font-size:30px;
+			font-weight: 700;
+			text-align: right;
+			color:#FFFFFF;
+			span{
+				text-transform:lowercase;
+				font-size:16px;
+				font-family: "Poppins";
+				font-weight: 400;
+				margin-left:3px;			
 			}
 		}	
+	}
+	h2{
+		font-family: "Poppins";
+		text-transform:uppercase;
+		font-size:24px;
+		font-weight: 700;
+		margin:0px;
+		span{
+			text-transform:lowercase;
+			font-size:16px;
+			font-family: "Poppins";
+			font-weight: 400;
+			margin-left:3px;			
+		}
+	}
 
+	.menu{
+	    float: left;
+		padding: 20px 0px 0;
+		max-width: 80px;
+		.menu-principal, .menu-vertical{
+		    display: block;
+			padding-left: 20px;
+			font-size: 25px;
+			a{
+			color:#000000;
+			}
+		}
+		.menu-principal{
+		    margin-bottom: 25px;
+		}
+		.menu-vertical{
+			font-size: 17px;
+			font-family: "Poppins";
+			font-weight: 400;			
+			margin:25px 0;
+			a{
+			color:#000000;
+			writing-mode: vertical-lr;
+			-webkit-transform: rotate(180deg);
+			   -moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				 -o-transform: rotate(180deg);
+					transform: rotate(180deg);
+			}
+		}
+	}
+	.scroll-bar-indicator
+	{
+		display: none;
+	}
 	
+	.container{
+		padding: 0px;
+		padding-left: 10px;
+		margin-bottom: 20px;
+		box-sizing: border-box;
+	}
+	
+	.exposition{
+	    margin-top:110px;
+		ion-col{
+			padding:2px;
+		}
+		p.date{
+			text-align:right;
+			margin: 0 30px 4px 0px;
+			font-size:17px;
+			font-family: "Poppins";
+			font-weight: 400;
+		}
+		p.presentation{
+			margin: 10px 30px 30px 0px;
+			font-size:14px;
+			font-family: "Poppins";
+			font-weight: 300;
+		}
+		ion-card {
+			display: inline-block;
+			text-align: center;
+			&.card-md, &.card-ios{
+				width: calc(100% - 30px);
+				margin: 0px;
+				max-height: 250px;
+				ion-card-content{
+					text-transform:uppercase;
+				}
+			}
+		}
+		.card-title {
+			position: absolute;
+			bottom: 15px;
+			font-size: 34px;
+			text-transform:uppercase;
+			width: calc(100% - 30px);
+			font-family: "Poppins";
+			font-weight: 700;
+			color: #fff;
+		}				
+	}	
+	
+	
+	
+	ion-scroll {
+		white-space: nowrap;
+		height: 100px;
+		ion-card {
+			display: inline-block;
+			&.card-md, &.card-ios{
+				width: calc(200px - 20px);
+				margin-left: 2px;		
+			}
+			.card-title {
+				margin-left:20px;
+				position: absolute;
+				bottom: 15px;
+				font-size: 17px;
+				font-family: "Poppins";
+				font-weight: 300;
+				color: #fff;
+				width:150px;
+				line-height: 100%;
+				word-wrap: break-word;
+				white-space: pre-wrap;				
+			}
+			.card-date {
+				position: absolute;
+				top: 11px;
+				margin-left: 80px;
+				font-size: 28px;
+				text-transform:uppercase;
+				font-family: "Poppins";
+				font-weight: 700;
+				color: #fff;
+			}			
+		}
+	}	
+
 	ion-row.atelier{
 		display:block;
 		
@@ -30,8 +182,31 @@ page-home {
 			float:right;
 			ion-icon{
 				font-size: 13px;
-				margin-left: 10px;
+				margin-left: 5px;
 			}
 		}
 	}
+
+	@media screen and (min-width: 500px) {
+		.exposition{
+			margin-top:60px;
+		}
+	}
+	
+	@media screen and (max-width: 400px) {
+		.menu{
+			padding: 20px 0px 0;
+			.menu-principal, .menu-vertical{
+				padding-left: 15px;		
+			}
+		}
+	}
+	
+	@media screen and (max-width: 300px) {
+		.menu{
+			.menu-principal, .menu-vertical{
+				padding-left: 10px;		
+			}
+		}
+	}	
 }
