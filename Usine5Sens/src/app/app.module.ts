@@ -4,6 +4,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { HttpModule } from '@angular/http';
+import {HttpClientModule} from "@angular/common/http";
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SigninPage } from '../pages/signin/signin';
@@ -14,6 +18,7 @@ import { GestionComptePage } from '../pages/gestion-compte/gestion-compte';
 import { ReservationChoixPage } from '../pages/reservation-choix/reservation-choix';
 import { ReservationsPage } from '../pages/reservations/reservations';
 import { VisitePage } from '../pages/visite/visite';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +35,8 @@ import { VisitePage } from '../pages/visite/visite';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -48,7 +55,8 @@ import { VisitePage } from '../pages/visite/visite';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

@@ -26,9 +26,6 @@ export class AtelierChoixPage {
     console.log(this.idAtelier);    
   }
 
-  getIdAtelier(){
-    var idAtelier = $(this).text();
-    console.log(idAtelier);
-  }
+
 
 }

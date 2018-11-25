@@ -4,6 +4,7 @@ import{VisitePage} from "../visite/visite";
 import{AteliersPage} from "../ateliers/ateliers";
 import{AtelierChoixPage} from "../atelier-choix/atelier-choix";
 import{GestionComptePage} from "../gestion-compte/gestion-compte";
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({
   selector: 'page-home',
@@ -11,6 +12,7 @@ import{GestionComptePage} from "../gestion-compte/gestion-compte";
 })
 export class HomePage {
 
+  token = this.authServiceProvider.token;
 	workshops = [
 	{id:0, name: "Création de parfum", description: "Créez votre parfum maison", place:"Pavillon des sens", startTime: "14:00",
    endTime: "16:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
@@ -20,8 +22,9 @@ export class HomePage {
    endTime: "22:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
 	]
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController,   public authServiceProvider : AuthServiceProvider) {
+    console.log("token :"+this.authServiceProvider.token);
+    //console.log(this.authServiceProvider.email);
   }
 
   activerEcranVisite(){
