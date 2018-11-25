@@ -1,13 +1,13 @@
-<ion-content overflow-scroll="true">
+<ion-content overflow-scroll="true" no-bounce>
 	<ion-grid col-2 class="menu">
 		<ion-row class="menu-principal">
-          <a><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
+          <a (click)="activerGestionCompte()"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
 		</ion-row>	
 		<ion-row class="menu-vertical">
-          <a>visite</a>
+          <a  (click)="activerEcranVisite()">visite</a>
 		</ion-row>		
 		<ion-row class="menu-vertical">
-          <a>atelier</a>
+          <a (click)="activerEcranAteliers()">ateliers</a>
 		</ion-row>		
 	</ion-grid>
 	<ion-grid class="container" col-10>	
@@ -33,7 +33,7 @@
 				<h2>Ateliers <span>du jour</span></h2>
 		</ion-row>
 		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
-			<ion-card *ngFor="let workshop of workshops" id="{{workshop.id}}" class="card-background-page">
+			<ion-card *ngFor="let workshop of workshops" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop.id)">
 				<img src="../assets/imgs/water.jpg"/>
 				<div class="card-date">{{workshop.startTime}}</div>
 				<div class="card-title">{{workshop.name}}</div>

@@ -140,6 +140,7 @@ page-home {
 		white-space: nowrap;
 		height: 100px;
 		ion-card {
+			cursor:pointer;
 			display: inline-block;
 			&.card-md, &.card-ios{
 				width: calc(200px - 20px);

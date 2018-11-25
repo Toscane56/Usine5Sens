@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import{VisitePage} from "../visite/visite";
+import{AteliersPage} from "../ateliers/ateliers";
+import{AtelierChoixPage} from "../atelier-choix/atelier-choix";
+import{GestionComptePage} from "../gestion-compte/gestion-compte";
 
 @Component({
   selector: 'page-home',
@@ -18,6 +22,30 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+
+  activerEcranVisite(){
+    //Fonction permettant d'amener à la page visite de l'Usine des 5 Sens
+    this.navCtrl.push(VisitePage);
+  }
+
+  activerGestionCompte(){
+    //Fonction permettant d'amener à la page servant à gérer le compte
+    this.navCtrl.push(GestionComptePage);
+  }
+
+  activerEcranAteliers(){
+    //Fonction permettant d'amener à la page regroupant tous les ateliers
+    this.navCtrl.push(AteliersPage);
+  }
+
+  activerEcranAtelierChoix(idAtelier:string){
+    //Fonction permettant d'amener à la page lorsque l'on clique sur un atelier en particulier
+    //Envoie les données "idAtelier" à la page suivante (l'atelier en question)
+    idAtelier = idAtelier;
+    this.navCtrl.push(AtelierChoixPage, {
+      data:idAtelier
+    });
   }
 
 }
