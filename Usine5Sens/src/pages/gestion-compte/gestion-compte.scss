@@ -1,3 +1,116 @@
 page-gestion-compte {
+	
+	body{
+		font-family: "Poppins";
+		font-weight: 400;
+	}
 
+	h2{
+		font-family: "Poppins";
+		text-transform: uppercase;
+	    font-size: 24px;
+	    font-weight: 700;
+	    margin: 0px;
+	    margin-top: 60px;
+	    text-align: center;
+	    margin-bottom:50px;
+		span{
+			text-transform:lowercase;
+			font-size:16px;
+			font-family: "Poppins";
+			font-weight: 400;
+			margin-left:3px;			
+		}
+	}
+
+	.connexion{
+	font-family: "Poppins";
+	text-align: center;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    	.row, .list{
+    	    margin-right: 40px;
+    	}
+	}
+
+	h3{
+	font-family: "Poppins";
+	font-weight: 400;
+	text-align:center;
+	}
+
+	.bottom{
+		position: absolute;
+	    bottom: 0;
+	    width: 83.33333%;
+	    margin-bottom: 20px;
+	    text-align: center;
+		a{
+		font-family: "Poppins";
+		font-weight: 400;
+		color:black;	
+		}
+	}
+	.menu{
+	    float: left;
+		padding: 20px 0px 0;
+		max-width: 80px;
+		.menu-principal, .menu-vertical{
+		    display: block;
+			padding-left: 20px;
+			font-size: 25px;
+			a{
+			color:#000000;
+			}
+		}
+		.menu-principal{
+		    margin-bottom: 25px;
+		}
+		.menu-vertical{
+			font-size: 17px;
+			font-family: "Poppins";
+			font-weight: 400;			
+			margin:25px 0;
+			a{
+			color:#000000;
+			writing-mode: vertical-lr;
+			-webkit-transform: rotate(180deg);
+			   -moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				 -o-transform: rotate(180deg);
+					transform: rotate(180deg);
+			}
+		}
+	}
+	
+	.container{
+		padding: 0px;
+		padding-left: 0px;
+		margin-bottom: 20px;
+		box-sizing: border-box;
+	}
+		
+
+
+	@media screen and (min-width: 500px) {
+	}
+	
+	@media screen and (max-width: 400px) {
+		.menu{
+			padding: 20px 0px 0;
+			.menu-principal, .menu-vertical{
+				padding-left: 15px;		
+			}
+		}
+	}
+	
+	@media screen and (max-width: 300px) {
+		.menu{
+			.menu-principal, .menu-vertical{
+				padding-left: 10px;		
+			}
+		}
+	}	
 }
