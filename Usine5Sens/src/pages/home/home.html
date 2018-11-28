@@ -26,12 +26,12 @@
 			<ion-col col-12 class="">
 				<p class="date">2 janvier - 2 mars</p>
 				<ion-card class="card-background-page">
-					<img src="../assets/imgs/water.jpg"/>
+					<img src="../assets/imgs/water.png"/>
 					<div class="card-title">L'eau</div>
 				</ion-card>
 			</ion-col>
 			<ion-col col-12 class="">
-				<p  class="presentation">Née sur le site de l’ancienne usine de pompage d’Eau de Seine, l’Usine des 5 Sens tient à coeur de vous faire découvrir l'eau dans tous ses états et dans tous les sens !</p>
+				<p  class="presentation">Née sur le site de l’ancienne usine de pompage d’Eau de Seine, l’Usine des 5 Sens vous fera découvrir l'eau dans tous ses états et dans tous les sens !</p>
 			</ion-col>
 		</ion-row>
 		<ion-row class="atelier">
@@ -39,7 +39,7 @@
 		</ion-row>
 		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
 			<ion-card *ngFor="let workshop of workshops" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop.id)">
-				<img src="../assets/imgs/water.jpg"/>
+				<img src="{{workshop.img}}"/>
 				<div class="card-date">{{workshop.startTime}}</div>
 				<div class="card-title">{{workshop.name}}</div>
 			</ion-card>

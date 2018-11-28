@@ -152,6 +152,7 @@ page-home {
 			display: inline-block;
 			&.card-md, &.card-ios{
 				width: calc(200px - 20px);
+				height: 180px;
 				margin-left: 2px;		
 			}
 			.card-title {
@@ -170,7 +171,7 @@ page-home {
 			.card-date {
 				position: absolute;
 				top: 11px;
-				margin-left: 80px;
+				margin-left: 95px;
 				font-size: 28px;
 				text-transform:uppercase;
 				font-family: "Poppins";

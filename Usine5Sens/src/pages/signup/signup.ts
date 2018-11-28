@@ -51,7 +51,7 @@ export class SignupPage {
   }
 
   register(){
-  this.authServiceProvider.token =1;
+  this.authServiceProvider.token ="1";
   this.navCtrl.push(GestionComptePage);
   }
 

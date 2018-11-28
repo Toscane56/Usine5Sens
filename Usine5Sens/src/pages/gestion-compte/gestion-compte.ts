@@ -48,7 +48,7 @@ export class GestionComptePage {
 	  }
 
 	  connexion(){
-	  this.authServiceProvider.token =1;
+	  this.authServiceProvider.token ="1";
 	  this.navCtrl.setRoot(GestionComptePage);
 	  }
 
