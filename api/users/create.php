@@ -4,11 +4,11 @@ require_once("../objects/user.php");
 require_once("../errors.php");
 
 
-header('Access-Control-Allow-Origin:*'); 
-header('Content-Type: application/json;charset=UTF-8'); 
-header('Access-Control-Allow-Methods: DELETE, HEAD, GET, OPTIONS, POST, PUT'); 
-header('Access-Control-Allow-Headers: Origin, Content-Type, Token, Authorization'); 
-header('Access-Control-Max-Age: 17'); 
+header('Access-Control-Allow-Origin:*');
+header('Content-Type: application/json;charset=UTF-8');
+header('Access-Control-Allow-Methods: DELETE, HEAD, GET, OPTIONS, POST, PUT');
+header('Access-Control-Allow-Headers: Origin, Content-Type, Token, Authorization');
+header('Access-Control-Max-Age: 17');
 
 
 //Initialiser la connexion
@@ -30,12 +30,12 @@ if ($json_data == null) {
     return check_error(errors("Create_get_contents", "Le fichier json est vide"));
 }
 
-//Affecter les valeurs 
+//Affecter les valeurs
 foreach (array_keys($user->properties) as $column) {
     if (! array_key_exists($column, $json_data)) {
         $json_data[$column] = null;
     }
-    
+
     $ret = $user->set_property_value($column, $json_data[$column]);
 
     //Vérifier que la fonction n'a pas retournée d'erreur
@@ -45,6 +45,6 @@ foreach (array_keys($user->properties) as $column) {
 $ret = $user->create();
 check_error($ret);
 
-$ret["pseudo"] = htmlentities($json_data["pseudo"]);
+$ret["email"] = htmlentities($json_data["email"]);
 
 success("Utilisateur créé", $options=$ret);

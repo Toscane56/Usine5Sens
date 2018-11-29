@@ -8,7 +8,7 @@ header("Access-Control-Allow-Origin:*");
 header('Content-Type: application/json;charset=UTF-8');
 header('Access-Control-Allow-Methods: DELETE, HEAD, GET, OPTIONS, POST, PUT');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Token, Authorization');
-header('Access-Control-Max-Age: 17'); 
+header('Access-Control-Max-Age: 17');
 
  //Initialiser la connexion
 $db = new Database();
@@ -26,8 +26,8 @@ check_error($user);
 $json_data = json_decode(file_get_contents('php://input'), true);
 
 //Vérifier que le json a strictement les paramètres pseudo et password
-if (! (sizeof($json_data) == 2 && 
-        array_key_exists("pseudo", $json_data) && 
+if (! (sizeof($json_data) == 2 &&
+        array_key_exists("email", $json_data) &&
         array_key_exists("password", $json_data))) {
     return check_error(errors("get_json", "L'entrée est vide"));
 }
@@ -37,10 +37,9 @@ $user->set_properties($json_data);
 
 //Récupérer le token associé à l'utilisateur : {"token": [0-9a-f]{128}}
 $data = $user->get_token_by_pseudo_and_password();
-        
+
 //Vérifier que la fonction n'a pas retournée d'erreur
 check_error($data);
 
-$data["pseudo"] = htmlentities($json_data["pseudo"]);
+$data["email"] = htmlentities($json_data["email"]);
 success("Jeton reçu", $options=$data);
-

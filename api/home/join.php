@@ -5,11 +5,11 @@ require_once("../objects/user_has_home.php");
 require_once("../objects/home.php");
 
 
-header('Access-Control-Allow-Origin: *'); 
-header('Content-Type: application/json;charset=UTF-8'); 
-header('Access-Control-Allow-Methods: DELETE, HEAD, GET, OPTIONS, POST, PUT'); 
-header('Access-Control-Allow-Headers: Origin, Content-Type, Token, Authorization'); 
-header('Access-Control-Max-Age: 17'); 
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json;charset=UTF-8');
+header('Access-Control-Allow-Methods: DELETE, HEAD, GET, OPTIONS, POST, PUT');
+header('Access-Control-Allow-Headers: Origin, Content-Type, Token, Authorization');
+header('Access-Control-Max-Age: 17');
 
 
 //Initialiser la connexion
@@ -24,7 +24,7 @@ $home = new Home($db);
 check_error($home);
 
 //Initialiser l'objet home
-$user_has_maison = new User_has_home($db);
+$user_has_maison = new User_has_workshop($db);
 
 //Vérifier que l'objet n'a pas retourné d'erreur
 check_error($user_has_maison);
@@ -38,19 +38,16 @@ if ($json_data == null) {
 }
 
 //Vérfier que la clé nom existe dans le json
-if (! array_key_exists("nom", $json_data)) {
-    check_error(errors("Join_json_keys", "L'entrée est invalide")); 
+if (! array_key_exists("name", $json_data)) {
+    check_error(errors("Join_json_keys", "L'entrée est invalide"));
 }
 
-check_error($stmt = $home->get_by_name($json_data["nom"]));
+check_error($stmt = $home->get_by_name($json_data["name"]));
 
 if (! ($stmt && $stmt->rowCount() == 1)) {
-    check_error(errors("Join_name", "Le nom de la maison n'existe pas"));
+    check_error(errors("Join_name", "Le nom de l'atelier n'existe pas"));
 }
 
-check_error($ret = $user_has_maison->create($token=get_token(), array("nom" => $json_data["nom"])));
+check_error($ret = $user_has_maison->create($token=get_token(), array("name" => $json_data["name"])));
 
 success($ret["success"]);
-
-
-
