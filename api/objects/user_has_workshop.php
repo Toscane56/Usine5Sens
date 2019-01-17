@@ -9,10 +9,10 @@ class User_has_workshop extends Table{
         parent::__construct($db, "User_has_workshop");
     }
 
-    //public function create($token, $maison_id) {
+    //public function create($token, $workshop_id) {
     public function create($token, $cond) {
         $column = array_keys($cond)[0];
-        //$request = "INSERT INTO " . $this->table_name  . " SELECT user_id, maison_id FROM user, maison WHERE token=:token AND maison_id=:maison_id";
+        //$request = "INSERT INTO " . $this->table_name  . " SELECT user_id, workshop_id FROM user, workshop WHERE token=:token AND workshop_id=:workshop_id";
         $request = "INSERT INTO " . $this->table_name  . " SELECT id_user, id_workshop FROM user, workshop WHERE token=:token AND workshop.$column=:$column";
 
         //Préparer la requête

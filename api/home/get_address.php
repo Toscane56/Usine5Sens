@@ -2,7 +2,7 @@
 require_once("../get_token.php");
 require_once("../errors.php");
 require_once("../config/database.php");
-require_once("../objects/home.php");
+require_once("../objects/workshop.php");
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json;charset=UTF-8');
@@ -18,13 +18,13 @@ $db = new Database();
 //Vérifier que l'objet n'a pas retourné d'erreur
 check_error($db);
 
-//Initialiser l'objet home
-$home = new Home($db);
+//Initialiser l'objet workshop
+$workshop = new Workshop($db);
 
 //Vérifier que l'objet n'a pas retourné d'erreur
-check_error($home);
+check_error($workshop);
 
-$stmt = $home->get_address_by_token(get_token());
+$stmt = $workshop->get_workshop_by_token(get_token());
 
 check_error($stmt);
 

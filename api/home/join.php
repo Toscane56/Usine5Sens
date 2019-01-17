@@ -1,8 +1,8 @@
 <?php
 require_once("../get_token.php");
 require_once("../config/database.php");
-require_once("../objects/user_has_home.php");
-require_once("../objects/home.php");
+require_once("../objects/user_has_workshop.php");
+require_once("../objects/workshop.php");
 
 
 header('Access-Control-Allow-Origin: *');
@@ -18,12 +18,12 @@ $db = new Database();
 //Vérifier que l'objet n'a pas retourné d'erreur
 check_error($db);
 
-$home = new Home($db);
+$workshop = new Workshop($db);
 
 //Vérifier que l'objet n'a pas retourné d'erreur
-check_error($home);
+check_error($workshop);
 
-//Initialiser l'objet home
+//Initialiser l'objet workshop
 $user_has_maison = new User_has_workshop($db);
 
 //Vérifier que l'objet n'a pas retourné d'erreur
@@ -42,7 +42,7 @@ if (! array_key_exists("name", $json_data)) {
     check_error(errors("Join_json_keys", "L'entrée est invalide"));
 }
 
-check_error($stmt = $home->get_by_name($json_data["name"]));
+check_error($stmt = $workshop->get_by_name($json_data["name"]));
 
 if (! ($stmt && $stmt->rowCount() == 1)) {
     check_error(errors("Join_name", "Le nom de l'atelier n'existe pas"));

@@ -2,7 +2,7 @@
 require_once("../get_token.php");
 require_once("../errors.php");
 require_once("../config/database.php");
-require_once("../objects/home.php");
+require_once("../objects/workshop.php");
 
 
 header('Access-Control-Allow-Origin: *'); 
@@ -18,14 +18,14 @@ $db = new Database();
 //Vérifier que l'objet n'a pas retourné d'erreur
 check_error($db);
 
-//Initialiser l'objet home
-$home = new Home($db);
+//Initialiser l'objet workshop
+$workshop = new Workshop($db);
 
 //Vérifier que l'objet n'a pas retourné d'erreur
-check_error($home);
+check_error($workshop);
 
-$homes = array();
-$stmt = $home->get_all_name_and_cp();
+$workshops = array();
+$stmt = $workshop->get_all_name_and_cp();
 
 check_error($stmt);
 
@@ -38,7 +38,7 @@ for ($i = 0; $i < $stmt->rowCount(); $i++) {
         $tmp[$key] = htmlentities($value);
     }
     
-    $homes[] = $tmp;
+    $workshops[] = $tmp;
 }
 
-success("Les nom des maisons ont été récupérés", array("names" => $homes));
+success("Les nom des ateliers ont été récupérés", array("names" => $workshops));
