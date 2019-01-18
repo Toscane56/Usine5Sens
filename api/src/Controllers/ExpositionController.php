@@ -8,8 +8,9 @@ class ExpositionController extends Controller
 {
     public function index()
     {
-        $today = date('Y-m-d');
-        $exposition = $this->db->fetch('expositions', ['date' => $today]);
+        $query = $this->db->query("SELECT * FROM expositions WHERE starting_at <= NOW() AND ending_at >= NOW()");
+        $query->execute();
+        $exposition = $query->fetch();
 
         if ($exposition) {
             return $this->success('Exposition found', [
