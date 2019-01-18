@@ -15,9 +15,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'options')
 
 $endpoints = [
     'user' => ['register', 'login', 'profile', 'update'],
-    'expositions' => ['index'],
-    'workshops' => ['index', 'book'],
-    'reservations' => ['index', 'delete'],
+    'exposition' => ['index'],
+    'workshop' => ['index', 'book', 'remove', 'reservations']
 ];
 
 if (isset($_GET['entity']) && isset($_GET['action']))
