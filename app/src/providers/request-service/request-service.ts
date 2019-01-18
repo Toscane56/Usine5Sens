@@ -42,13 +42,4 @@ export class RequestServiceProvider {
         });
     }
 
-    getElement(entity, action){
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        let options = new RequestOptions({headers: headers});
-        let url = apiUrl + '?entity=' + entity + '&action=' + action;
-        console.log('Requête GET', url);
-        return this.http.get(url, options=options).map(res=>res.json());
-    }
-
 }
