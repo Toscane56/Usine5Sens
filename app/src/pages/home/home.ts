@@ -5,6 +5,7 @@ import{AteliersPage} from "../ateliers/ateliers";
 import{AtelierChoixPage} from "../atelier-choix/atelier-choix";
 import{GestionComptePage} from "../gestion-compte/gestion-compte";
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { RequestServiceProvider } from '../../providers/request-service/request-service';
 
 @Component({
   selector: 'page-home',
@@ -13,15 +14,19 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class HomePage {
 
   token = this.authServiceProvider.token;
+  firstname = this.authServiceProvider.firstname;
+
+  exposition: any;
+
 	workshops = [
 	{id:0, name: "Création de parfum", description: "Créez votre parfum maison", place:"Pavillon des sens", startTime: "14:00", endTime: "16:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/workshops/atelier_parfum.jpg"},
 	{id:1, name: "Photographie et Nature", description: "Voyez la nature autrement", place:"Place principal - jet d'eau", startTime: "19:00", endTime: "17:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
 	{id:2, name: "Atelier Cuisine", description: "Testez de nouvelles recettes", place:"Halle d'Auteuil", startTime: "14:00", endTime: "22:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
 	]
 
-  constructor(public navCtrl: NavController,   public authServiceProvider : AuthServiceProvider) {
+  constructor(public navCtrl: NavController, public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
     console.log("token :"+this.authServiceProvider.token);
-    //console.log(this.authServiceProvider.email);
+    this.recupererExposition();
   }
 
   activerEcranVisite(){
@@ -37,6 +42,20 @@ export class HomePage {
   activerEcranAteliers(){
     //Fonction permettant d'amener à la page regroupant tous les ateliers
     this.navCtrl.push(AteliersPage);
+  }
+
+  recupererExposition(){
+    //Fonction permettant de récupérer l'exposition en cours dans la bdd
+    this.requestServiceProvider.request('exposition', 'index', this.exposition).then((result) => {
+      data=>{
+        this.exposition=data.exposition;
+        //console.log(data);
+        console.log("exposition "+ this.exposition);
+      }}, (error) => {
+      //erreur coté serveur
+        console.log(error);
+        console.log("ça ne marche pas");
+    });
   }
 
   activerEcranAtelierChoix(idAtelier:string){

@@ -34,9 +34,9 @@ export class AuthServiceProvider {
             headers.append('Content-Type', 'application/json');
 
             let options = new RequestOptions({ headers: headers });
-            let url = apiUrl + '?entity=' + entity + '&action=' + action
+            let url = apiUrl + '?entity=' + entity + '&action=' + action;
 
-            console.log('Requête POST', url, data)
+            console.log('Requête POST', url, data);
 
             this.http.post(url, JSON.stringify(data), options=options).subscribe(res => {
                 console.log("Données renvoyées par l'API", JSON.stringify(data));
