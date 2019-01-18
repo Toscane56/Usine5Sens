@@ -4,20 +4,27 @@ page-visite {
 		font-weight: 400;
 	}
 
-	h2{
-		font-family: "Poppins";
-		text-transform: uppercase;
-	    font-size: 24px;
-	    font-weight: 700;
-	    margin: 0px;
-	    margin-top: 60px;
-	    text-align: center;
-		span{
-			text-transform:lowercase;
-			font-size:16px;
+	.title{
+		display: block;
+		background-image: url("../assets/imgs/exterieur_usine.png");
+		width: 325px;
+		height: 285px;
+		position: absolute;
+		right: -90px;
+		top: -200px;
+		z-index: -1;
+		border-radius: 100%;
+		h2{
+			top: 190px;
+			right: 110px;
+			position:relative;			
 			font-family: "Poppins";
-			font-weight: 400;
-			margin-left:3px;			
+			text-transform: uppercase;
+		    font-size: 24px;
+		    font-weight: 700;
+		    margin: 0px;
+		    padding-top: 60px;
+		    text-align: center;	    
 		}
 	}
 

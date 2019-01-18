@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "L'Usine des 5 Sens",
+  "short_name": "L'Usine",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
@@ -8,6 +8,6 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#4e8ef7",
+  "background_color": "#FFFFFF",
   "theme_color": "#4e8ef7"
 }
