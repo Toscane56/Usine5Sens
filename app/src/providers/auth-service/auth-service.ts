@@ -20,6 +20,7 @@ export class AuthServiceProvider {
 
     public token: string;
     public email: string;
+    public firstname: string;
 
     constructor(public http: Http) {
         console.log('Hello AuthServiceProvider Provider');

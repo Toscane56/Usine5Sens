@@ -17,6 +17,11 @@ let apiUrl = API_URL;
 @Injectable()
 export class RequestServiceProvider {
 
+    public token: string;
+    public email: string;
+    public firstname: string;
+
+
     constructor(public http: Http) {
         console.log('Hello AuthServiceProvider Provider');
     }
