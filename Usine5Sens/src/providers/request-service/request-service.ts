@@ -15,21 +15,15 @@ import 'rxjs/add/operator/map';
 let apiUrl = API_URL;
 
 @Injectable()
-export class AuthServiceProvider {
-
-
-    public token: string;
-    public email: string;
+export class RequestServiceProvider {
 
     constructor(public http: Http) {
         console.log('Hello AuthServiceProvider Provider');
     }
 
     request (entity, action, data = {}) {
-        //Envoie le json au serveur avec le token en entete
         return new Promise((resolve, reject) => {
             let headers = new Headers();
-            headers.append('X-AUTH-TOKEN', this.token);
             headers.append('Content-Type', 'application/json');
 
             let options = new RequestOptions({ headers: headers });
