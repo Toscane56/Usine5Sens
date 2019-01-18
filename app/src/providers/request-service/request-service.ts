@@ -17,6 +17,7 @@ let apiUrl = API_URL;
 @Injectable()
 export class RequestServiceProvider {
 
+
     constructor(public http: Http) {
         console.log('Hello AuthServiceProvider Provider');
     }
@@ -27,9 +28,9 @@ export class RequestServiceProvider {
             headers.append('Content-Type', 'application/json');
 
             let options = new RequestOptions({ headers: headers });
-            let url = apiUrl + '?entity=' + entity + '&action=' + action
+            let url = apiUrl + '?entity=' + entity + '&action=' + action;
 
-            console.log('Requête POST', url, data)
+            console.log('Requête POST', url, data);
 
             this.http.post(url, JSON.stringify(data), options=options).subscribe(res => {
                 console.log("Données renvoyées par l'API", JSON.stringify(data));
@@ -40,4 +41,14 @@ export class RequestServiceProvider {
             });
         });
     }
+
+    getElement(entity, action){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let options = new RequestOptions({headers: headers});
+        let url = apiUrl + '?entity=' + entity + '&action=' + action;
+        console.log('Requête GET', url);
+        return this.http.get(url, options=options).map(res=>res.json());
+    }
+
 }
