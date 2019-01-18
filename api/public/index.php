@@ -2,6 +2,17 @@
 
 namespace App;
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, OPTIONS, POST');
+header('Access-Control-Allow-Headers: Access-Control-Request-Headers, Access-Control-Request-Method, referer, user-agent, content-type, X-AUTH-TOKEN');
+header('Access-Control-Allow-Credentials: true');
+
+if (strtolower($_SERVER['REQUEST_METHOD']) == 'options')
+{
+    http_response_code(200);
+    die;
+}
+
 $endpoints = [
     'user' => ['register', 'login', 'profile', 'update'],
     'expositions' => ['index'],
@@ -18,10 +29,7 @@ if (isset($_GET['entity']) && isset($_GET['action']))
     {
         if (in_array($action, $endpoints[$entity]))
         {
-            header('Access-Control-Allow-Origin: *');
             header('Content-Type: application/json;charset=UTF-8');
-            header('Access-Control-Allow-Methods: GET, POST');
-            header('Access-Control-Allow-Headers: Origin, Content-Type, X-AUTH-TOKEN');
             header('Access-Control-Max-Age: 17');
 
             $controller = ucfirst($entity).'Controller';
