@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import{VisitePage} from "../visite/visite";
 import{AteliersPage} from "../ateliers/ateliers";
 import{AtelierChoixPage} from "../atelier-choix/atelier-choix";
@@ -16,7 +16,7 @@ export class HomePage {
   token = this.authServiceProvider.token;
   firstname = this.authServiceProvider.firstname;
 
-  exposition: any;
+  expositions = [];
 
 	workshops = [
 	{id:0, name: "Création de parfum", description: "Créez votre parfum maison", place:"Pavillon des sens", startTime: "14:00", endTime: "16:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/workshops/atelier_parfum.jpg"},
@@ -24,9 +24,15 @@ export class HomePage {
 	{id:2, name: "Atelier Cuisine", description: "Testez de nouvelles recettes", place:"Halle d'Auteuil", startTime: "14:00", endTime: "22:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
 	]
 
-  constructor(public navCtrl: NavController, public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
+  constructor(public navCtrl: NavController,  private params: NavParams , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
     console.log("token :"+this.authServiceProvider.token);
     this.recupererExposition();
+    
+  }
+
+  ionViewDidLoad() {
+    
+    console.log('ionViewDidLoad ReservationsPage');
   }
 
   activerEcranVisite(){
@@ -46,12 +52,12 @@ export class HomePage {
 
   recupererExposition(){
     //Fonction permettant de récupérer l'exposition en cours dans la bdd
-    this.requestServiceProvider.request('exposition', 'index', this.exposition).then((result) => {
-      data=>{
-        this.exposition=data.exposition;
+    this.requestServiceProvider.request('exposition', 'index', this.expositions).then((result) => {
+        var data = JSON.parse(result['_body']).exposition;
+        this.expositions.push(data); //ajoute les expositions dans le tableau
         //console.log(data);
-        console.log("exposition "+ this.exposition);
-      }}, (error) => {
+        console.log("exposition "+ this.expositions);
+      }, (error) => {
       //erreur coté serveur
         console.log(error);
         console.log("ça ne marche pas");

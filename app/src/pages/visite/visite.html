@@ -20,6 +20,60 @@
 		<ion-row class="title">
 			<h2>Visite</h2>
 		</ion-row>
-	</ion-grid>
-  
+		<ion-row class="introduction">
+			<ion-col col-12>
+				<h1>Bienvenue à l'Usine des 5 Sens</h1>
+			</ion-col>
+			<ion-col col-12>
+				<h3>Convivialité au coeur de Paris, à deux pas de la Tour Eiffel</h3>
+			</ion-col>
+		</ion-row>		
+		<ion-row *ngFor="let exposition of expositions" class="exposition">
+			<ion-col col-12 class="">
+				<ion-card  id="exposition_{{exposition.id}}" class="card-background-page">
+					<img src="../assets/imgs/{{exposition.img}}"/>
+					<div class="card-title">{{exposition.name}}<p class="date">du {{exposition.starting_at}} au {{exposition.ending_at}}</p></div>
+				</ion-card>
+			</ion-col>
+			<ion-col col-12 class="">
+				
+				<p  class="presentation">{{exposition.description}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="atelier">
+				<h2>Les lieux</h2>
+		</ion-row>
+		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
+			<ion-card class="card-background-page">
+				<img src="../assets/imgs/jardin.png"/>
+				<div class="card-title">Les jardins</div>
+				<div class="card-description">Emerveillez-vous dans un lieu aérien et féérique.</div>
+			</ion-card>			
+			<ion-card class="card-background-page">
+				<img src="../assets/imgs/cuisine.png"/>
+				<div class="card-title">La cuisine</div>
+				<div class="card-description">Partagez un repas avec d'autres résidents de l'Usine.</div>
+			</ion-card>
+			<ion-card class="card-background-page">
+				<img src="../assets/imgs/dortoir.png"/>
+				<div class="card-title">Les dortoirs</div>
+				<div class="card-description">Réservez des espaces qui vous correspondent.</div>
+			</ion-card>
+			<ion-card class="card-background-page">
+				<img src="../assets/imgs/lieu.png"/>
+				<div class="card-title">La Halle Copernic</div>
+				<div class="card-description">Participez à des ateliers pour tester vos sens.</div>
+			</ion-card>
+			<ion-card class="card-background-page">
+				<img src="../assets/imgs/sous_sol.png"/>
+				<div class="card-title">Les sous-sols</div>
+				<div class="card-description">Jouez avec les profondeurs de l'expérimentation sensorielle.</div>
+			</ion-card>		
+			<ion-card class="card-background-page">
+				<img src="../assets/imgs/coworking.png"/>
+				<div class="card-title">Le coworking</div>
+				<div class="card-description">Boostez votre créativité dans des espaces conviviaux.</div>
+			</ion-card>
+		</ion-scroll>
+	</ion-grid> 
 </ion-content>

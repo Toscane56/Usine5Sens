@@ -125,6 +125,7 @@ page-home {
 			&.card-md, &.card-ios{
 				width: calc(100% - 30px);
 				margin: 0px;
+				margin-top: 5px;
 				max-height: 250px;
 				ion-card-content{
 					text-transform:uppercase;
@@ -147,19 +148,19 @@ page-home {
 	
 	ion-scroll {
 		white-space: nowrap;
-		height: 120px;
+		height: 160px;
 		ion-card {
 			cursor:pointer;
 			display: inline-block;
 			&.card-md, &.card-ios{
 				width: calc(200px - 20px);
-				height: 180px;
+				height: 120px;
 				margin-left: 2px;		
 			}
 			.card-title {
 				margin-left:20px;
 				position: absolute;
-				bottom: 15px;
+				bottom: 30px;
 				font-size: 17px;
 				font-family: "Poppins";
 				font-weight: 300;

@@ -20,19 +20,18 @@
           <h1 *ngIf="token != null">Bonjour</h1>
           <h2 *ngIf="token != null">{{firstname}}</h2>
 		</ion-row>
-		<ion-row class="exposition">
+		<ion-row *ngFor="let exposition of expositions" class="exposition">
 			<ion-col col-12>
-				<h2>Expositions</h2>
+				<h2>Exposition <span>en cours</span></h2>
 			</ion-col>
 			<ion-col col-12 class="">
-				<p class="date">2 janvier - 2 mars</p>
-				<ion-card class="card-background-page" (click)="activerEcranVisite()">
-					<img src="../assets/imgs/water.png"/>
-					<div class="card-title">L'eau</div>
+				<ion-card  id="exposition_{{exposition.id}}" class="card-background-page" (click)="activerEcranVisite()">
+					<img src="../assets/imgs/{{exposition.img}}"/>
+					<div class="card-title">{{exposition.name}}</div>
 				</ion-card>
 			</ion-col>
 			<ion-col col-12 class="">
-				<p  class="presentation">Née sur le site de l’ancienne usine de pompage d’Eau de Seine, l’Usine des 5 Sens vous fera découvrir l'eau dans tous ses états et dans tous les sens !</p>
+				<p  class="presentation">{{exposition.description}}</p>
 			</ion-col>
 		</ion-row>
 		<ion-row class="atelier">
