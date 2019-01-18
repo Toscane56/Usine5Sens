@@ -8,9 +8,9 @@ Importer le contenu du fichier `api/database.sql` dans votre base de données My
 
 ## App
 
-Exécuter `npm install` dans le sous-dossier `Usine5Sens`.
+Exécuter `npm install` dans le sous-dossier `app`.
 
-Dupliquer le fichier `Usine5Sens/src/config.sample.js` en `Usine5Sens/src/config.js` puis modifier l'URL vers l'API dans le fichier créé.
+Dupliquer le fichier `app/src/config.sample.js` en `app/src/config.js` puis modifier l'URL vers l'API dans le fichier créé.
 
 # Tests
 
@@ -22,4 +22,4 @@ Rendez-vous sur l'URL `api/public/index.php` pour voir la doc de l'API.
 
 # Exécution
 
-Faire un `npm start` dans le sous-dossier `Usine5Sens` pour lancer le projet !
+Faire un `npm start` dans le sous-dossier `app` pour lancer le projet !
