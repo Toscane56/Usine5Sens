@@ -29,13 +29,12 @@ export class VisitePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VisitePage');
-	console.log("token :"+this.authServiceProvider.token);
+	  console.log("token :"+this.authServiceProvider.token);
   }
-
 
   recupererExposition(){
     //Fonction permettant de récupérer l'exposition en cours dans la bdd
-    this.requestServiceProvider.request('exposition', 'index', this.expositions).then((result) => {
+    this.requestServiceProvider.request('exposition', 'index').then((result) => {
         var data = JSON.parse(result['_body']).exposition;
         this.expositions.push(data); //ajoute les expositions dans le tableau
         //console.log(data);

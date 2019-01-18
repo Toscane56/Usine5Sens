@@ -100,11 +100,11 @@ page-home {
 		box-sizing: border-box;
 	}
 	
+	.exposition-title{
+		margin-top:110px;
+	}
 	.exposition{
-	    margin-top:110px;
-		ion-col{
-			padding:2px;
-		}
+	    
 		p.date{
 			text-align:right;
 			margin: 0 30px 4px 0px;
@@ -153,17 +153,17 @@ page-home {
 			cursor:pointer;
 			display: inline-block;
 			&.card-md, &.card-ios{
-				width: calc(200px - 20px);
+				width: calc(240px - 20px);
 				height: 120px;
 				margin-left: 2px;		
 			}
 			.card-title {
 				margin-left:20px;
 				position: absolute;
-				bottom: 30px;
-				font-size: 17px;
+				bottom: 50px;
+				font-size: 18px;
 				font-family: "Poppins";
-				font-weight: 300;
+				font-weight: 500;
 				color: #fff;
 				width:150px;
 				line-height: 100%;

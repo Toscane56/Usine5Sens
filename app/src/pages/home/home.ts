@@ -17,8 +17,9 @@ export class HomePage {
   firstname = this.authServiceProvider.firstname;
 
   expositions = [];
+  workshops = [];
 
-	workshops = [
+	test = [
 	{id:0, name: "Création de parfum", description: "Créez votre parfum maison", place:"Pavillon des sens", startTime: "14:00", endTime: "16:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/workshops/atelier_parfum.jpg"},
 	{id:1, name: "Photographie et Nature", description: "Voyez la nature autrement", place:"Place principal - jet d'eau", startTime: "19:00", endTime: "17:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
 	{id:2, name: "Atelier Cuisine", description: "Testez de nouvelles recettes", place:"Halle d'Auteuil", startTime: "14:00", endTime: "22:00", startDate: "25/11/2018", endDate: "30/02/2019", img:"../assets/imgs/water.jpg"},
@@ -27,7 +28,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,  private params: NavParams , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
     console.log("token :"+this.authServiceProvider.token);
     this.recupererExposition();
-    
+    this.recupererAtelier();
   }
 
   ionViewDidLoad() {
@@ -52,11 +53,27 @@ export class HomePage {
 
   recupererExposition(){
     //Fonction permettant de récupérer l'exposition en cours dans la bdd
-    this.requestServiceProvider.request('exposition', 'index', this.expositions).then((result) => {
+    this.requestServiceProvider.request('exposition', 'index').then((result) => {
         var data = JSON.parse(result['_body']).exposition;
         this.expositions.push(data); //ajoute les expositions dans le tableau
         //console.log(data);
         console.log("exposition "+ this.expositions);
+      }, (error) => {
+      //erreur coté serveur
+        console.log(error);
+        console.log("ça ne marche pas");
+    });
+  }
+
+
+  recupererAtelier(){
+    //Fonction permettant de récupérer les ateliers en cours dans la bdd
+    this.requestServiceProvider.request('workshop', 'index').then((result) => {
+        var data = JSON.parse(result['_body']).workshops;
+        this.workshops.push(data); //ajoute les ateliers dans le tableau
+        
+        //console.log(data);
+        console.log("workshops "+ JSON.parse(result['_body']).workshops[0].scheduled_at);
       }, (error) => {
       //erreur coté serveur
         console.log(error);

@@ -20,10 +20,12 @@
           <h1 *ngIf="token != null">Bonjour</h1>
           <h2 *ngIf="token != null">{{firstname}}</h2>
 		</ion-row>
-		<ion-row *ngFor="let exposition of expositions" class="exposition">
+		<ion-row class="exposition-title">
 			<ion-col col-12>
 				<h2>Exposition <span>en cours</span></h2>
 			</ion-col>
+		</ion-row>
+		<ion-row *ngFor="let exposition of expositions" class="exposition">
 			<ion-col col-12 class="">
 				<ion-card  id="exposition_{{exposition.id}}" class="card-background-page" (click)="activerEcranVisite()">
 					<img src="../assets/imgs/{{exposition.img}}"/>
@@ -38,9 +40,9 @@
 				<h2>Ateliers <span>du jour</span></h2>
 		</ion-row>
 		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
-			<ion-card *ngFor="let workshop of workshops" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop.id)">
-				<img src="{{workshop.img}}"/>
-				<div class="card-date">{{workshop.startTime}}</div>
+			<ion-card *ngFor="let workshop of workshops[0]" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop.id)">
+				<img src="../assets/imgs/workshops/{{workshop.img}}"/>
+				<div class="card-date">{{workshop.scheduled_at}}</div>
 				<div class="card-title">{{workshop.name}}</div>
 			</ion-card>
 		</ion-scroll>
