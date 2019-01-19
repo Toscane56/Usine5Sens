@@ -23,8 +23,8 @@
 			<h2><ion-icon name="arrow-back" (click)="retourPagePrecendente()"></ion-icon> </h2>
 		</ion-row>
 	</ion-grid>
-	<ion-grid class="container introduction" col-10>	
-		<ion-row >
+	<ion-grid class="container introduction" col-10>		
+		<ion-row>
 			<ion-col *ngFor="let senses of workshopArray.senses" col-4>
 				<div>
 					<div id="sens_{{senses.id}}" [ngStyle]="{'background-color': StringObj(senses.color)}" class="point_sense"></div>
@@ -35,7 +35,27 @@
 	</ion-grid>
 	<ion-grid class="container" col-10>	
 		<ion-row class="atelier">
-				<h2>Les lieux</h2>
+			<ion-col col-12>
+				<p class="description">{{workshopArray.description}}</p>
+			</ion-col>
+			<ion-col col-12>
+				<h2>Informations</h2>
+				<h2>complémentaires</h2>
+			</ion-col>			
+			<ion-col col-12>
+				<p style="margin-top: 10px;"><ion-icon name="arrow-forward"></ion-icon> Du {{workshopArray.starting_at}} au {{workshopArray.ending_at}}</p>
+			</ion-col>
+			<ion-col col-12>
+				<p><ion-icon name="arrow-forward"></ion-icon> Début : {{workshopArray.scheduled_at}}</p>
+			</ion-col>
+			<ion-col col-12>
+				<p><ion-icon name="arrow-forward"></ion-icon> Durée : {{workshopArray.duration}}h</p>
+			</ion-col>					
 		</ion-row>
+		<ion-row>
+    		<ion-col col-12>
+				<button ion-button block class="bouton-principal" (click)="reserverAtelier()">Réserver cet atelier</button>
+      		</ion-col>
+      	</ion-row>
 	</ion-grid> 
 </ion-content>

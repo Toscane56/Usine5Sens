@@ -79,7 +79,6 @@ page-visite {
 		ion-card {
 			display: inline-block;
 			text-align: center;
-			cursor:pointer;
 			&.card-md, &.card-ios{
 				width: calc(100% - 20px);
 				margin: 0px;
@@ -146,7 +145,6 @@ page-visite {
 		white-space: nowrap;
 		height: 200px;
 		ion-card {
-			cursor:pointer;
 			display: inline-block;
 			&.card-md, &.card-ios{
 				width: calc(200px - 20px);

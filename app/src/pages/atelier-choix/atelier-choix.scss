@@ -39,13 +39,13 @@ page-atelier-choix {
 
 	h2{
 		font-family: "Poppins";
-		text-transform:uppercase;
-		font-size:24px;
-		font-weight: 700;
+		font-size:18px;
 		margin:0px;
 	}	
 
 	ion-grid.introduction ion-row{
+		align-items: center;
+  		justify-content: center;
 		ion-col{
 			padding-right:10px;
 			div{
@@ -83,50 +83,22 @@ page-atelier-choix {
 		}
 	}
 
-	.exposition{
-		margin:auto;
-		max-width: 1000px;
-	    margin-top:20px;
-		ion-col{
-			padding:0px;
+	.atelier ion-col{
+		padding: 0px;
+		p{
+		    margin: 0px 15px 0px 0px;
+		    font-size: 14px;
+		    font-family: "Poppins";
+		    font-weight: 300;			
 		}
-		p.date{
-			font-size:15px;
-			font-family: "Poppins";
-			font-weight: 400;
-			color:white;
+		.description{
+			margin: 0px 15px 20px 0px;
 		}
-		p.presentation{
-			margin: 10px 20px 20px 0px;
-			font-size:14px;
-			line-height: 120%;
-			font-family: "Poppins";
-			font-weight: 300;
-		}
-		ion-card {
-			display: inline-block;
-			text-align: center;
-			cursor:pointer;
-			&.card-md, &.card-ios{
-				width: calc(100% - 20px);
-				margin: 0px;
-				max-height: 250px;
-				ion-card-content{
-					text-transform:uppercase;
-				}
-			}
-		}
-		.card-title {
-			position: absolute;
-			bottom: 15px;
-			font-size: 34px;
-			text-transform:uppercase;
-			width: calc(100% - 30px);
-			font-family: "Poppins";
-			font-weight: 700;
-			color: #fff;
-		}				
 	}	
+
+	button.bouton-principal{
+		margin-top: 20px;
+	}
 
 	.menu{
 	    float: left;
@@ -150,7 +122,7 @@ page-atelier-choix {
 		    margin-left: 12px;
 		    height: 55px;
 		    width: 16px;
-			background:#facbc0;
+			background:#c0e8ff;
 			}
 			font-size: 17px;
 			font-family: "Poppins";
@@ -168,43 +140,6 @@ page-atelier-choix {
 		}
 	}
 
-
-	ion-scroll {
-		white-space: nowrap;
-		height: 200px;
-		ion-card {
-			cursor:pointer;
-			display: inline-block;
-			&.card-md, &.card-ios{
-				width: calc(200px - 20px);
-				height: 180px;
-				margin-left: 2px;
-				box-shadow: none;
-				text-align: center;	
-			}
-			img{
-				-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-			}
-			.card-title {
-				font-size: 18px;
-				font-family: "Poppins";
-				font-weight: 700;
-				line-height: 120%;
-				margin-top: 5px;
-				word-wrap: break-word;
-				white-space: pre-wrap;				
-			}
-			.card-description {
-				font-size: 13px;
-			    line-height: 120%;
-			    font-family: "Poppins";
-			    font-weight: 300;
-			    word-wrap: break-word;
-			    white-space: pre-wrap;
-			}			
-		}
-	}
 
 	@media screen and (min-width: 500px) {
 	}
