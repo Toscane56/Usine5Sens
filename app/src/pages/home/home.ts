@@ -71,9 +71,9 @@ export class HomePage {
     this.requestServiceProvider.request('workshop', 'index').then((result) => {
         var data = JSON.parse(result['_body']).workshops;
         this.workshops.push(data); //ajoute les ateliers dans le tableau
-        
+
         //console.log(data);
-        console.log("workshops "+ JSON.parse(result['_body']).workshops[0].scheduled_at);
+        //console.log("workshops "+ JSON.parse(result['_body']).workshops[1].senses[1].name);
       }, (error) => {
       //erreur coté serveur
         console.log(error);
@@ -81,12 +81,11 @@ export class HomePage {
     });
   }
 
-  activerEcranAtelierChoix(idAtelier:string){
+  activerEcranAtelierChoix(idWorkshop:string){
     //Fonction permettant d'amener à la page lorsque l'on clique sur un atelier en particulier
-    //Envoie les données "idAtelier" à la page suivante (l'atelier en question)
-    idAtelier = idAtelier;
+    //Envoie toutes les données de l'atelier en question à la page suivante
     this.navCtrl.push(AtelierChoixPage, {
-      data:idAtelier
+      idWorkshop:idWorkshop               
     });
   }
 

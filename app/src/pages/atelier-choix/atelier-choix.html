@@ -1,18 +1,35 @@
-<!--
-  Generated template for the AtelierChoixPage page.
+<ion-content overflow-scroll="true" no-bounce>
+	<ion-grid col-2 class="menu">
+		<ion-row class="menu-principal">
+          <a (click)="activerGestionCompte()"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
+		</ion-row>		
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+		<ion-row class="menu-vertical">
+          	<a (click)="activerAccueil()">accueil</a>
+		</ion-row>	
+		<ion-row class="menu-vertical">
+          	<a (click)="activerEcranVisite()">visite</a>
+		</ion-row>		
+		<ion-row class="menu-vertical">
+			<div class="trait_actif"></div>
+          	<a (click)="activerEcranAteliers()">ateliers</a>
+		</ion-row>		
+	</ion-grid>
 
-  <ion-navbar>
-    <ion-title>AtelierChoix : {{idAtelier}}</ion-title>
-  </ion-navbar>
+	<ion-grid  class="container" col-10>	
+		<ion-row *ngFor="let workshop of workshops[0]" class="title">
+			<img *ngIf="idwWorkshop == workshop.id" class="workshop_img" src="../assets/imgs/workshops/{{workshop.img}}"/>
+			<h2 *ngIf="idwWorkshop == workshop.id" class="name_workshop"><span>{{workshop.name}}</span></h2>
+			<h2><ion-icon name="arrow-back" (click)="retourPagePrecendente()"></ion-icon> </h2>
+		</ion-row>
+		<ion-row *ngFor="let workshop of workshops[0]" class="introduction">
+			<ion-col *ngIf="idwWorkshop == workshop.id" col-4>
+				<h1 *ngFor="let senses of workshop.senses">{{senses.name}}</h1>
+			</ion-col>
+		</ion-row>		
 
-</ion-header>
-
-
-<ion-content padding>
-
+		<ion-row class="atelier">
+				<h2>Les lieux</h2>
+		</ion-row>
+	</ion-grid> 
 </ion-content>

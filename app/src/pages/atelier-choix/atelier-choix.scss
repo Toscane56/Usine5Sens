@@ -1,3 +1,212 @@
 page-atelier-choix {
+	body{
+		font-family: "Poppins";
+		font-weight: 400;
+	}
 
+	.title{
+		display: block;
+		width: 100%;
+		.workshop_img{
+			z-index: -1;
+		}
+		h2{
+			color:#FFFFFF;
+			position: absolute;
+    		top: 0;		
+			font-family: "Poppins";
+			text-transform: initial;
+		    font-size: 18px;
+		    font-weight: 700;
+		    margin: 8px 0 0 10px;
+		    text-align: left;
+		    ion-icon {
+		    	font-size: 17px;
+    			font-weight: bold;
+    			cursor: pointer;
+    			padding:20px;
+			}
+	
+		}
+		h2.name_workshop{
+			padding: 18px;
+    		padding-left: 50px;
+		    span{
+		    	margin-left: 5px;
+		    } 			
+		}
+	}
+
+	h2{
+		font-family: "Poppins";
+		text-transform:uppercase;
+		font-size:24px;
+		font-weight: 700;
+		margin:0px;
+	}	
+
+	ion-row.introduction{
+		ion-col{
+			padding:0px;
+			h1, h3{
+				font-family: "Poppins";
+				text-transform:uppercase;
+				font-size:26px;
+				font-weight: 700;
+				line-height: 120%;
+				margin:20px 5px 0 0;
+			}
+			h3{
+				text-transform:initial;
+				font-size:16px;
+				font-family: "Poppins";
+				font-weight: 400;
+				margin:0px 5px 0 0;		
+				
+			}		
+		}
+	}
+
+	.exposition{
+		margin:auto;
+		max-width: 1000px;
+	    margin-top:20px;
+		ion-col{
+			padding:0px;
+		}
+		p.date{
+			font-size:15px;
+			font-family: "Poppins";
+			font-weight: 400;
+			color:white;
+		}
+		p.presentation{
+			margin: 10px 20px 20px 0px;
+			font-size:14px;
+			line-height: 120%;
+			font-family: "Poppins";
+			font-weight: 300;
+		}
+		ion-card {
+			display: inline-block;
+			text-align: center;
+			cursor:pointer;
+			&.card-md, &.card-ios{
+				width: calc(100% - 20px);
+				margin: 0px;
+				max-height: 250px;
+				ion-card-content{
+					text-transform:uppercase;
+				}
+			}
+		}
+		.card-title {
+			position: absolute;
+			bottom: 15px;
+			font-size: 34px;
+			text-transform:uppercase;
+			width: calc(100% - 30px);
+			font-family: "Poppins";
+			font-weight: 700;
+			color: #fff;
+		}				
+	}	
+
+	.menu{
+	    float: left;
+		padding: 20px 0px 0;
+		max-width: 80px;
+		.menu-principal, .menu-vertical{
+		    display: block;
+			padding-left: 20px;
+			font-size: 25px;
+			a{
+			color:#000000;
+			}
+		}
+		.menu-principal{
+		    margin-bottom: 25px;
+		}
+		.menu-vertical{
+			.trait_actif{
+			position: absolute;
+		    margin-top: 10px;
+		    margin-left: 12px;
+		    height: 55px;
+		    width: 16px;
+			background:#facbc0;
+			}
+			font-size: 17px;
+			font-family: "Poppins";
+			font-weight: 400;			
+			margin:25px 0;
+			a{
+			color:#000000;
+			writing-mode: vertical-lr;
+			-webkit-transform: rotate(180deg);
+			   -moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				 -o-transform: rotate(180deg);
+					transform: rotate(180deg);
+			}
+		}
+	}
+
+
+	ion-scroll {
+		white-space: nowrap;
+		height: 200px;
+		ion-card {
+			cursor:pointer;
+			display: inline-block;
+			&.card-md, &.card-ios{
+				width: calc(200px - 20px);
+				height: 180px;
+				margin-left: 2px;
+				box-shadow: none;
+				text-align: center;	
+			}
+			img{
+				-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+			}
+			.card-title {
+				font-size: 18px;
+				font-family: "Poppins";
+				font-weight: 700;
+				line-height: 120%;
+				margin-top: 5px;
+				word-wrap: break-word;
+				white-space: pre-wrap;				
+			}
+			.card-description {
+				font-size: 13px;
+			    line-height: 120%;
+			    font-family: "Poppins";
+			    font-weight: 300;
+			    word-wrap: break-word;
+			    white-space: pre-wrap;
+			}			
+		}
+	}
+
+	@media screen and (min-width: 500px) {
+	}
+	
+	@media screen and (max-width: 400px) {
+		.menu{
+			padding: 20px 0px 0;
+			.menu-principal, .menu-vertical{
+				padding-left: 15px;		
+			}
+		}
+	}
+	
+	@media screen and (max-width: 300px) {
+		.menu{
+			.menu-principal, .menu-vertical{
+				padding-left: 10px;		
+			}
+		}
+	}
 }
