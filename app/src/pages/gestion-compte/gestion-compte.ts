@@ -5,6 +5,8 @@ import{VisitePage} from "../visite/visite";
 import{AteliersPage} from "../ateliers/ateliers";
 import{HomePage} from "../home/home";
 import{SignupPage} from "../signup/signup";
+import{ReservationsPage} from "../reservations/reservations";
+import{ReservationChoixPage} from "../reservation-choix/reservation-choix"
 import { RequestServiceProvider } from '../../providers/request-service/request-service';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 /**
@@ -46,6 +48,16 @@ export class GestionComptePage {
 	    //Fonction permettant d'amener à l'accueil
 	    this.navCtrl.push(HomePage);
 	  }
+
+    ActiverEcranProfil(){
+      //Fonction permettant d'amener à la page qui sert à mettre à jour le profil de l'utilisateur
+      this.navCtrl.push(ReservationChoixPage);
+    }
+
+    ActiverEcranReservations(){
+      //Fonction permettant d'amener à la page regroupant les réservations de l'utilisateur
+      this.navCtrl.push(ReservationsPage);
+    }
 
 	  connexion(){
     //Fonction permettant d'enregistrer un nouveau utilisateur dans la base de données

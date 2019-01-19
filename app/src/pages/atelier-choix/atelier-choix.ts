@@ -98,18 +98,29 @@ export class AtelierChoixPage {
           }, (error) => {
           //erreur coté serveur
             console.log(error);
+            this.presentToastReservationDejaEffectue();
             console.log("ça ne marche pas. L'id du workshop est : "+this.workshopId);
           });
     }  
 
   presentToastReservation() {
-    //Définit le message de refus de se connecter sans toutes les données
+    //Définit le message de validation de la réservation
     let toast = this.toastCtrl.create({
-        message: "Inscription effectuée !",
+        message: "Réservation effectuée !",
         duration: 3000
       });
     toast.present();
   }
+
+  presentToastReservationDejaEffectue() {
+    //Définit le message de refus de refaire la réservation car l'atelier est déjà reservé
+    let toast = this.toastCtrl.create({
+        message: "Atelier déjà réservée",
+        duration: 3000
+      });
+    toast.present();
+  }
+
 
   // changementInteret(event){
   //   //Permet de changer l'intéret de l'utilisateur pour un évenement de la ville 
