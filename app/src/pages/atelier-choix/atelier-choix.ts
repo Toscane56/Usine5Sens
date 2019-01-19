@@ -23,34 +23,26 @@ export class AtelierChoixPage {
 
 
   token = this.authServiceProvider.token;
-	idwWorkshop:string;
-  workshops = [];
+	workshopArray:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
-    this.idwWorkshop = navParams.get('idWorkshop'); 
-    this.recupererAtelier();        
+    this.workshopArray = navParams.get('Workshop'); //récupération du tableau workshop de la page précédente 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AtelierChoixPage');
-    console.log(this.idwWorkshop);   
+    console.log(this.workshopArray);  
+     
   }
 
-  recupererAtelier(){
-    //Fonction permettant de récupérer les ateliers en cours dans la bdd
-    this.requestServiceProvider.request('workshop', 'index').then((result) => {
-        var data = JSON.parse(result['_body']).workshops;
-        this.workshops.push(data); //ajoute les ateliers dans le tableau
-
-        //console.log(data);
-        //console.log("workshops "+ JSON.parse(result['_body']).workshops[1].senses[1].name);
-      }, (error) => {
-      //erreur coté serveur
-        console.log(error);
-        console.log("ça ne marche pas");
-    });
+  StringObj(obj){
+    var str = '';
+    for (var p in obj) {
+            str += obj[p];
+    }
+    str = '#'+str;  
+    return str;
   }
-
 
   activerEcranAteliers(){
     //Fonction permettant d'amener à la page regroupant tous les ateliers

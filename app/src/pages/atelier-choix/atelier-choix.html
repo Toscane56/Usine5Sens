@@ -16,18 +16,24 @@
 		</ion-row>		
 	</ion-grid>
 
-	<ion-grid  class="container" col-10>	
-		<ion-row *ngFor="let workshop of workshops[0]" class="title">
-			<img *ngIf="idwWorkshop == workshop.id" class="workshop_img" src="../assets/imgs/workshops/{{workshop.img}}"/>
-			<h2 *ngIf="idwWorkshop == workshop.id" class="name_workshop"><span>{{workshop.name}}</span></h2>
+	<ion-grid class="container" col-10>	
+		<ion-row class="title">
+			<img class="workshop_img" src="../assets/imgs/workshops/{{workshopArray.img}}"/>
+			<h2 class="name_workshop"><span>{{workshopArray.name}}</span></h2>
 			<h2><ion-icon name="arrow-back" (click)="retourPagePrecendente()"></ion-icon> </h2>
 		</ion-row>
-		<ion-row *ngFor="let workshop of workshops[0]" class="introduction">
-			<ion-col *ngIf="idwWorkshop == workshop.id" col-4>
-				<h1 *ngFor="let senses of workshop.senses">{{senses.name}}</h1>
+	</ion-grid>
+	<ion-grid class="container introduction" col-10>	
+		<ion-row >
+			<ion-col *ngFor="let senses of workshopArray.senses" col-4>
+				<div>
+					<div id="sens_{{senses.id}}" [ngStyle]="{'background-color': StringObj(senses.color)}" class="point_sense"></div>
+					<p>{{senses.name}}</p>
+				</div>
 			</ion-col>
 		</ion-row>		
-
+	</ion-grid>
+	<ion-grid class="container" col-10>	
 		<ion-row class="atelier">
 				<h2>Les lieux</h2>
 		</ion-row>

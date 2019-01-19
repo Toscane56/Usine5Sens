@@ -81,11 +81,11 @@ export class HomePage {
     });
   }
 
-  activerEcranAtelierChoix(idWorkshop:string){
+  activerEcranAtelierChoix(Workshop:any){
     //Fonction permettant d'amener à la page lorsque l'on clique sur un atelier en particulier
     //Envoie toutes les données de l'atelier en question à la page suivante
     this.navCtrl.push(AtelierChoixPage, {
-      idWorkshop:idWorkshop               
+      Workshop:Workshop               
     });
   }
 

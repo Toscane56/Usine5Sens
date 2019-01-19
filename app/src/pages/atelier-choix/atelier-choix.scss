@@ -45,25 +45,41 @@ page-atelier-choix {
 		margin:0px;
 	}	
 
-	ion-row.introduction{
+	ion-grid.introduction ion-row{
 		ion-col{
-			padding:0px;
-			h1, h3{
-				font-family: "Poppins";
-				text-transform:uppercase;
-				font-size:26px;
-				font-weight: 700;
-				line-height: 120%;
-				margin:20px 5px 0 0;
-			}
-			h3{
-				text-transform:initial;
-				font-size:16px;
-				font-family: "Poppins";
-				font-weight: 400;
-				margin:0px 5px 0 0;		
-				
-			}		
+			padding-right:10px;
+			div{
+				padding:20px 2px;
+				box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+				border-radius: 4px;
+				box-sizing: border-box;
+				background: #FFFFFF;
+				div.point_sense{
+					width: 18px;
+					padding:0px;
+					margin:0 auto 12px;
+					height: 18px;
+					filter: blur(2px);
+					border-radius: 50px;
+				}
+				p{
+					font-family: "Poppins";
+					font-size: 12px;
+					text-transform: lowercase;
+	    			text-align: center;
+					font-weight: 300;
+					line-height: 100%;
+
+				}
+				h3{
+					text-transform:initial;
+					font-size:16px;
+					font-family: "Poppins";
+					font-weight: 400;
+					margin:0px 5px 0 0;		
+					
+				}	
+			}	
 		}
 	}
 
