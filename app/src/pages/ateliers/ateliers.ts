@@ -14,62 +14,61 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-ateliers',
-  templateUrl: 'ateliers.html',
-})
-export class AteliersPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-ateliers',
+   templateUrl: 'ateliers.html',
+ })
+ export class AteliersPage {
 
-  	token = this.authServiceProvider.token;
-    workshops = [];
+   token = this.authServiceProvider.token;
+   workshops = [];
 
-	constructor(public navCtrl: NavController,  private params: NavParams , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
-    this.recupererAtelier();
-  }
+   constructor(public navCtrl: NavController,  private params: NavParams , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
+     this.recupererAtelier();
+   }
 
-  	ionViewDidLoad() {
-    	console.log('ionViewDidLoad AteliersPage');
-    	console.log("token :"+this.authServiceProvider.token);
-  	}
+   ionViewDidLoad() {
+     console.log('ionViewDidLoad AteliersPage');
+     //console.log("token :"+this.authServiceProvider.token);
+   }
 
-  	activerEcranVisite(){
-    	//Fonction permettant d'amener à la page visite de l'Usine des 5 Sens
-    	this.navCtrl.push(VisitePage);
-  	}
+   activerEcranVisite(){
+     //Fonction permettant d'amener à la page visite de l'Usine des 5 Sens
+     this.navCtrl.push(VisitePage);
+   }
 
-  	activerGestionCompte(){
-    	//Fonction permettant d'amener à la page servant à gérer le compte
-    	this.navCtrl.push(GestionComptePage);
-  	}
+   activerGestionCompte(){
+     //Fonction permettant d'amener à la page servant à gérer le compte
+     this.navCtrl.push(GestionComptePage);
+   }
 
-	activerAccueil(){
-		//Fonction permettant d'amener à l'accueil
-		this.navCtrl.push(HomePage);
-	} 
+   activerAccueil(){
+     //Fonction permettant d'amener à l'accueil
+     this.navCtrl.push(HomePage);
+   } 
 
-  recupererAtelier(){
-    //Fonction permettant de récupérer les ateliers en cours dans la bdd
-    this.requestServiceProvider.request('workshop', 'index').then((result) => {
-        var data = JSON.parse(result['_body']).workshops;
-        this.workshops.push(data); //ajoute les ateliers dans le tableau
+   recupererAtelier(){
+     //Fonction permettant de récupérer les ateliers en cours dans la bdd
+     this.requestServiceProvider.request('workshop', 'index').then((result) => {
+       var data = JSON.parse(result['_body']).workshops;
+       this.workshops.push(data); //ajoute les ateliers dans le tableau
+       //console.log(data);
+       
+     }, (error) => {
+       //erreur coté serveur
+       console.log(error);
+       console.log("ça ne marche pas");
+     });
+   }
 
-        //console.log(data);
-        //console.log("workshops "+ JSON.parse(result['_body']).workshops[1].senses[1].name);
-      }, (error) => {
-      //erreur coté serveur
-        console.log(error);
-        console.log("ça ne marche pas");
-    });
-  }
-
-  activerEcranAtelierChoix(Workshop:any){
-    //Fonction permettant d'amener à la page lorsque l'on clique sur un atelier en particulier
-    //Envoie toutes les données de l'atelier en question à la page suivante
-    this.navCtrl.push(AtelierChoixPage, {
-      Workshop:Workshop               
-    });
-  }
+   activerEcranAtelierChoix(Workshop:any){
+     //Fonction permettant d'amener à la page lorsque l'on clique sur un atelier en particulier
+     //Envoie toutes les données de l'atelier en question à la page suivante
+     this.navCtrl.push(AtelierChoixPage, {
+       Workshop:Workshop               
+     });
+   }
 
 
-}
+ }

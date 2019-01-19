@@ -25,13 +25,14 @@ import { AlertController } from 'ionic-angular';
  })
  export class ApercuReservationPage {
 
-   token = this.authServiceProvider.token;
+   token = this.authServiceProvider.token; //recuperation du token
    workshopArray:any;
    workshopId = {"workshop_id":""};
 
    constructor(private alertCtrl: AlertController, public navCtrl: NavController, public toastCtrl: ToastController, public navParams: NavParams,public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
      this.workshopArray = navParams.get('Reservation'); //récupération du tableau workshop de la page précédente 
-     this.workshopId.workshop_id = this.workshopArray.id ;
+     this.workshopId.workshop_id = this.workshopArray.id ; //récupération de l'id de l'atelier et ajout de la valeur 
+                                                           //à workshop_id
    }
 
    ionViewDidLoad() {
@@ -68,8 +69,8 @@ import { AlertController } from 'ionic-angular';
    desinscription(reservationId){
      //Fonction permettant de désinscrire l'utilisateur à un atelier
 
-     console.log(reservationId);
-     this.workshopId.workshop_id=reservationId;
+     //console.log(reservationId);
+     this.workshopId.workshop_id=reservationId; //récupération de l'id de l'atelier pour l'envoyer
      
      //Création d'une alerte pour demander confirmation
      let alert = this.alertCtrl.create({
@@ -90,7 +91,7 @@ import { AlertController } from 'ionic-angular';
            //Envoi au serveur le json   
            this.authServiceProvider.request('workshop', 'remove' , this.workshopId).then((result) => {
              console.log("J'ai envoyé les donnees.")
-             this.navCtrl.push(ReservationsPage);
+             this.navCtrl.push(ReservationsPage); //mène à la page où il y a toutes les réservations
 
            }, (error) => {
              //erreur coté serveur

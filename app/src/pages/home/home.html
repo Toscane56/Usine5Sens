@@ -1,24 +1,23 @@
 <ion-content overflow-scroll="true" no-bounce>
 	<ion-grid col-2 class="menu">
 		<ion-row class="menu-principal">
-          <a (click)="activerGestionCompte()"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
+			<a (click)="activerGestionCompte()"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
 		</ion-row>	
-
 		<ion-row class="menu-vertical">
 			<div class="trait_actif"></div>
-          <a>accueil</a>
+			<a>accueil</a>
 		</ion-row>	
 		<ion-row class="menu-vertical">
-          <a  (click)="activerEcranVisite()">visite</a>
+			<a  (click)="activerEcranVisite()">visite</a>
 		</ion-row>		
 		<ion-row class="menu-vertical">
-          <a (click)="activerEcranAteliers()">ateliers</a>
+			<a (click)="activerEcranAteliers()">ateliers</a>
 		</ion-row>		
 	</ion-grid>
 	<ion-grid class="container" col-10>	
 		<ion-row class="circle">
-          <h1 *ngIf="token != null">Bonjour</h1>
-          <h2 *ngIf="token != null">{{firstname}}</h2>
+			<h1 *ngIf="token != null">Bonjour</h1>
+			<h2 *ngIf="token != null">{{firstname}}</h2>
 		</ion-row>
 		<ion-row class="exposition-title">
 			<ion-col col-12>
@@ -37,21 +36,14 @@
 			</ion-col>
 		</ion-row>
 		<ion-row class="atelier">
-				<h2>Ateliers <span>du jour</span></h2>
+			<h2>Ateliers <span>du jour</span></h2>
 		</ion-row>
 		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
-
 			<ion-card *ngFor="let workshop of workshops[0] | slice:0:3;" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop)">
 				<img src="../assets/imgs/workshops/{{workshop.img}}"/>
 				<div class="card-date">{{workshop.scheduled_at}}</div>
 				<div class="card-title">{{workshop.name}}</div>
 			</ion-card>
 		</ion-scroll>
-		<!-- <ion-row class="atelier">
-			<a> 
-			<!-- Voir d’autres ateliers <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon> -->
-			<!-- </a> 
-		</ion-row>-->
 	</ion-grid>
-  
 </ion-content>

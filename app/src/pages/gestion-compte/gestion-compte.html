@@ -1,17 +1,16 @@
 <ion-content overflow-scroll="true" no-bounce>
 	<ion-grid col-2 class="menu">
 		<ion-row class="menu-principal">
-          <a><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
-		</ion-row>	
-
-		<ion-row class="menu-vertical">
-          <a  (click)="activerAccueil()">accueil</a>
+			<a><ion-icon ios="ios-menu" md="md-menu"></ion-icon></a>
 		</ion-row>	
 		<ion-row class="menu-vertical">
-          <a  (click)="activerEcranVisite()">visite</a>
+			<a  (click)="activerAccueil()">accueil</a>
+		</ion-row>	
+		<ion-row class="menu-vertical">
+			<a  (click)="activerEcranVisite()">visite</a>
 		</ion-row>		
 		<ion-row class="menu-vertical">
-          <a (click)="activerEcranAteliers()">ateliers</a>
+			<a (click)="activerEcranAteliers()">ateliers</a>
 		</ion-row>		
 	</ion-grid>
 
@@ -27,35 +26,35 @@
 		<ion-row class="connexion">
 			<ion-list>
 				<ion-item>
-			    	<ion-label color="primary" floating>Email</ion-label>
-			    	<ion-input [(ngModel)]="coData.email" name="email" type="email"></ion-input>
-			  	</ion-item>
-			  	<ion-item>
-			    	<ion-label color="primary" floating>Mot de passe</ion-label>
-			    	<ion-input [(ngModel)]="coData.password" name="password" type="password"></ion-input>
-			    </ion-item>
+					<ion-label color="primary" floating>Email</ion-label>
+					<ion-input [(ngModel)]="coData.email" name="email" type="email"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label color="primary" floating>Mot de passe</ion-label>
+					<ion-input [(ngModel)]="coData.password" name="password" type="password"></ion-input>
+				</ion-item>
 			</ion-list>
 			<ion-row>
-	    		<ion-col col-12>
-	      			<p class="right">Mot de passe oublié ?</p>
-	      		</ion-col>
-	      	</ion-row>
+				<ion-col col-12>
+					<p class="right">Mot de passe oublié ?</p>
+				</ion-col>
+			</ion-row>
 			<ion-row>
-	    		<ion-col col-12>
+				<ion-col col-12>
 					<button ion-button block class="bouton-principal " (click)="connexion()">Se connecter</button>
-	      		</ion-col>
-	      	</ion-row>
+				</ion-col>
+			</ion-row>
 			<ion-row>
-	    		<ion-col col-12>
+				<ion-col col-12>
 					<p>ou</p>
-	      		</ion-col>
-	      	</ion-row>
+				</ion-col>
+			</ion-row>
 			<ion-row>
-	    		<ion-col col-12>
+				<ion-col col-12>
 					<a (click)="activerSignup()">Créer un compte</a>
-	      		</ion-col>
-	      	</ion-row>
-      	</ion-row>
+				</ion-col>
+			</ion-row>
+		</ion-row>
 	</ion-grid>
 
 	<ion-grid *ngIf="token != null" class="container" col-10>	
@@ -83,5 +82,5 @@
 			</ion-col>	
 		</ion-row>
 	</ion-grid>
-  
+
 </ion-content>

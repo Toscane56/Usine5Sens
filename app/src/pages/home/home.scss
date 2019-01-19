@@ -1,10 +1,8 @@
 page-home {
-	
 	body{
 		font-family: "Poppins";
 		font-weight: 400;
 	}
-
 	ion-row.circle{
 		display: block;
 		background: #3de5c2;
@@ -48,43 +46,42 @@ page-home {
 			margin-left:3px;			
 		}
 	}
-
 	.menu{
-	    float: left;
+		float: left;
 		padding: 20px 0px 0;
 		max-width: 80px;
 		.menu-principal, .menu-vertical{
-		    display: block;
+			display: block;
 			padding-left: 20px;
 			font-size: 25px;
 			a{
-			color:#000000;
+				color:#000000;
 			}
 		}
 		.menu-principal{
-		    margin-bottom: 25px;
+			margin-bottom: 25px;
 		}
 		.menu-vertical{
 			.trait_actif{
-			position: absolute;
-		    margin-top: 15px;
-		    margin-left: 12px;
-		    height: 55px;
-		    width: 16px;
-			background:#caf2ea;
+				position: absolute;
+				margin-top: 15px;
+				margin-left: 12px;
+				height: 55px;
+				width: 16px;
+				background:#caf2ea;
 			}
 			font-size: 17px;
 			font-family: "Poppins";
 			font-weight: 400;			
 			margin:25px 0;
 			a{
-			color:#000000;
-			writing-mode: vertical-lr;
-			-webkit-transform: rotate(180deg);
-			   -moz-transform: rotate(180deg);
+				color:#000000;
+				writing-mode: vertical-lr;
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
 				-ms-transform: rotate(180deg);
-				 -o-transform: rotate(180deg);
-					transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
 			}
 		}
 	}
@@ -92,19 +89,17 @@ page-home {
 	{
 		display: none;
 	}
-	
 	.container{
 		padding: 0px;
 		padding-left: 10px;
 		margin-bottom: 20px;
 		box-sizing: border-box;
 	}
-	
 	.exposition-title{
 		margin-top:110px;
 	}
 	.exposition{
-	    
+
 		p.date{
 			text-align:right;
 			margin: 0 30px 4px 0px;
@@ -135,7 +130,7 @@ page-home {
 		.card-title {
 			position: absolute;
 			bottom: 15px;
-			font-size: 34px;
+			font-size: 28px;
 			text-transform:uppercase;
 			width: calc(100% - 30px);
 			font-family: "Poppins";
@@ -143,9 +138,6 @@ page-home {
 			color: #fff;
 		}				
 	}	
-	
-	
-	
 	ion-scroll {
 		white-space: nowrap;
 		height: 160px;
@@ -160,7 +152,7 @@ page-home {
 			.card-title {
 				margin-left:20px;
 				position: absolute;
-				bottom: 50px;
+				bottom: 45px;
 				font-size: 18px;
 				font-family: "Poppins";
 				font-weight: 500;
@@ -182,7 +174,6 @@ page-home {
 			}			
 		}
 	}	
-
 	ion-row.atelier{
 		display:block;
 		

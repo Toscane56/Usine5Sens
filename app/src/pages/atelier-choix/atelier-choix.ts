@@ -10,11 +10,11 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { RequestServiceProvider } from '../../providers/request-service/request-service';
 
 /**
- * Generated class for the AtelierChoixPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+* Generated class for the AtelierChoixPage page.
+*
+* See https://ionicframework.com/docs/components/#navigation for more info on
+* Ionic pages and navigation.
+*/
 
 @IonicPage()
 @Component({
@@ -25,25 +25,30 @@ export class AtelierChoixPage {
 
 
   token = this.authServiceProvider.token;
-	workshopArray:any;
+
+  workshopArray:any;
+  reservations = [];
+
   workshopId = {"workshop_id":""};
+  boutton = {"nom":"Réserver cet atelier"};
 
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public navParams: NavParams,public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
     this.workshopArray = navParams.get('Workshop'); //récupération du tableau workshop de la page précédente 
     this.workshopId.workshop_id = this.workshopArray.id ;
+    this.recupererReservations();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AtelierChoixPage');
     console.log(this.workshopArray);
     console.log(this.token);
-     
   }
 
   StringObj(obj){
     var str = '';
     for (var p in obj) {
-            str += obj[p];
+      str += obj[p];
     }
     str = '#'+str;  
     return str;
@@ -80,64 +85,75 @@ export class AtelierChoixPage {
     {
       this.navCtrl.push(SigninPage);
     }else{
-        this.envoiDonneesReservation();
+      this.envoiDonneesReservation();
     }
   }
 
+  verificationReservation(){
+    console.log("j'aimerais changer le bouton en supprimer");
+    console.log(this.reservations);
+    for (let i in this.reservations) {
+      console.log(this.reservations[i].id);
+      console.log("workshopArray : "+this.workshopArray.id);
+      console.log("boucle reservation");
+      if(this.reservations[i].id == this.workshopArray.id){
+        let text = "Atelier déjà réservé";
+        console.log(text);
+        this.boutton.nom = text;
+      }
+    }   
+  }
+
+
   envoiDonneesReservation(){
     //Fonction permettant de créer un lien entre l'utilisateur et l'atelier réservé dans la base de données
-      console.log(this.workshopArray.id);
+    console.log(this.workshopArray.id);
 
-      //Envoi au serveur le json   
-          this.authServiceProvider.request('workshop', 'book' , this.workshopId).then((result) => {
-          console.log("J'ai envoyé les donnees.")
-
-              this.presentToastReservation();
-              //sinon passer à l'écran suivant
-
-          }, (error) => {
-          //erreur coté serveur
-            console.log(error);
-            this.presentToastReservationDejaEffectue();
-            console.log("ça ne marche pas. L'id du workshop est : "+this.workshopId);
-          });
-    }  
+    //Envoi au serveur le json   
+    this.authServiceProvider.request('workshop', 'book' , this.workshopId).then((result) => {
+      console.log("J'ai envoyé les donnees.")
+      this.presentToastReservation();
+    }, (error) => {
+      //erreur coté serveur
+      console.log(error);
+      this.presentToastReservationDejaEffectue();
+      console.log("ça ne marche pas. L'id du workshop est : "+this.workshopId);
+    });
+  }  
 
   presentToastReservation() {
     //Définit le message de validation de la réservation
     let toast = this.toastCtrl.create({
-        message: "Réservation effectuée !",
-        duration: 3000
-      });
+      message: "Réservation effectuée !",
+      duration: 3000
+    });
     toast.present();
   }
 
   presentToastReservationDejaEffectue() {
     //Définit le message de refus de refaire la réservation car l'atelier est déjà reservé
     let toast = this.toastCtrl.create({
-        message: "Atelier déjà réservé",
-        duration: 3000
-      });
+      message: "Atelier déjà réservé",
+      duration: 3000
+    });
     toast.present();
   }
 
 
-  // changementInteret(event){
-  //   //Permet de changer l'intéret de l'utilisateur pour un évenement de la ville 
-  //   let bouton = event.target;
-  //   console.log(event.target);
-  //   let identifiant = $(event.target.closest('.card')).attr('id');//Récupere l'id de l'evenement
-  //   if($(bouton).attr('value') =='Pas intéressé(e)'){ //Si la valeur de l'attribut value était "pas intéressé(e)"
-  //     $(bouton).attr('value', 'Intéressé(e)'); //Alors changer en "interessé(e)"
-  //     //bouton.innerHTML = 'Intéressé(e)';
+  recupererReservations(){
+    //Fonction permettant de récupérer les réservations dans la bdd
+    this.authServiceProvider.request('workshop', 'reservations').then((result) => {
+      var data = JSON.parse(result['_body']).workshops;
+      this.reservations=data; //ajoute les reservations dans le tableau
+      console.log(this.reservations);
+      this.verificationReservation();
+      //console.log("workshops "+ JSON.parse(result['_body']).workshops[1].senses[1].name);
+    }, (error) => {
+      //erreur coté serveur
+      console.log(error);
+      console.log("ça ne marche pas");
+    });
+  }
 
-  //   }else{ //sinon
-  //     console.log("changement : pas interet");
-  //     $(bouton).attr('value', 'Pas intéressé(e)'); //Alors changer en "pas interessé(e)"
-  //     //bouton.innerHTML = 'Pas intéressé(e)';  
-  //   }
-  //   let card = $(event.target.closest('.card'));
-  //   card.removeClass("active"); //Fermer l'évenement
-  // }
 
 }
