@@ -23,16 +23,6 @@
 			<h2><ion-icon name="arrow-back" (click)="retourPagePrecendente()"></ion-icon> </h2>
 		</ion-row>
 	</ion-grid>
-	<ion-grid class="container introduction" col-10>		
-		<ion-row>
-			<ion-col *ngFor="let senses of workshopArray.senses" col-4>
-				<div>
-					<div id="sens_{{senses.id}}" [ngStyle]="{'background-color': StringObj(senses.color)}" class="point_sense"></div>
-					<p>{{senses.name}}</p>
-				</div>
-			</ion-col>
-		</ion-row>		
-	</ion-grid>
 	<ion-grid class="container" col-10>	
 		<ion-row class="atelier">
 			<ion-col col-12>
@@ -54,7 +44,7 @@
 		</ion-row>
 		<ion-row style="margin: auto; max-width: 240px; width: 100%;">
     		<ion-col col-12>
-				<button ion-button block class="bouton-principal" (click)="reserverAtelier()">Réserver cet atelier</button>
+				<button ion-button block class="bouton-principal" (click)="desinscription(workshopArray.id)">Se désinscrire</button>
       		</ion-col>
       	</ion-row>
 	</ion-grid> 

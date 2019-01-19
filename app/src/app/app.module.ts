@@ -19,7 +19,7 @@ import { GestionComptePage } from '../pages/gestion-compte/gestion-compte';
 import { ReservationChoixPage } from '../pages/reservation-choix/reservation-choix';
 import { ReservationsPage } from '../pages/reservations/reservations';
 import { VisitePage } from '../pages/visite/visite';
-
+import { ApercuReservationPage } from '../pages/apercu-reservation/apercu-reservation';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { VisitePage } from '../pages/visite/visite';
     GestionComptePage,
     ReservationChoixPage,
     ReservationsPage,
-    VisitePage
+    VisitePage,
+    ApercuReservationPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,8 @@ import { VisitePage } from '../pages/visite/visite';
     GestionComptePage,
     ReservationChoixPage,
     ReservationsPage,
-    VisitePage
+    VisitePage,
+    ApercuReservationPage
   ],
   providers: [
     StatusBar,

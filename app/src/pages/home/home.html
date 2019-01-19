@@ -40,7 +40,8 @@
 				<h2>Ateliers <span>du jour</span></h2>
 		</ion-row>
 		<ion-scroll scrollbar-x="false" scrollbar-y="false"  scrollX="true">
-			<ion-card *ngFor="let workshop of workshops[0]" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop)">
+
+			<ion-card *ngFor="let workshop of workshops[0] | slice:0:3;" id="workshop_{{workshop.id}}" class="card-background-page" (click)="activerEcranAtelierChoix(workshop)">
 				<img src="../assets/imgs/workshops/{{workshop.img}}"/>
 				<div class="card-date">{{workshop.scheduled_at}}</div>
 				<div class="card-title">{{workshop.name}}</div>

@@ -18,8 +18,19 @@
 
 	<ion-grid class="container" col-10>	
 		<ion-row class="title">
-			<ion-col col-12>
-				<h2>Ateliers</h2>
+			<h2>Ateliers</h2>
+		</ion-row>
+		<ion-row class="inscription">
+			<ion-col>
+				<ion-card *ngFor="let workshop of workshops[0]" id="workshop_{{workshop.id}}" (click)="activerEcranAtelierChoix(workshop)">
+					<button ion-item>
+						<ion-avatar item-start>
+							<img src="../assets/imgs/workshops/{{workshop.img}}"/>
+						</ion-avatar>
+						<h2>{{workshop.name}}</h2>
+						<p>{{workshop.scheduled_at}}</p>
+					</button>
+				</ion-card>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

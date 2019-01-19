@@ -25,8 +25,8 @@
 	<ion-grid class="container" col-10>	
 		<ion-row class="inscription">
 			<ion-col>
-				<ion-card *ngFor="let reservation of reservations[0]" id="reservation_{{reservation.id}}">
-					<ion-item>
+				<ion-card *ngFor="let reservation of reservations[0]" id="reservation_{{reservation.id}}" >
+					<ion-item (click)="activerEcranApercuReservation(reservation)">
 						<ion-avatar item-start>
 							<img src="../assets/imgs/workshops/{{reservation.img}}"/>
 						</ion-avatar>

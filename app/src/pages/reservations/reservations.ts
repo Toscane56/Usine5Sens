@@ -5,6 +5,7 @@ import{GestionComptePage} from "../gestion-compte/gestion-compte";
 import{HomePage} from "../home/home";
 import{SigninPage} from "../signin/signin";
 import{VisitePage} from "../visite/visite";
+import{ApercuReservationPage} from "../apercu-reservation/apercu-reservation";
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { RequestServiceProvider } from '../../providers/request-service/request-service';
 import { AlertController } from 'ionic-angular';
@@ -56,13 +57,21 @@ import { AlertController } from 'ionic-angular';
  		this.navCtrl.push(HomePage);
  	} 
 
+ 	activerEcranApercuReservation(Reservation:any){
+ 		//Fonction permettant d'amener à la page d'aperçu de la réservation choisie
+    	//Envoie toutes les données de la réservation en question à la page suivante 		
+ 		this.navCtrl.push(ApercuReservationPage, {
+      Reservation:Reservation             
+    });
+ 	}  	
+
  	retourPagePrecendente(){
  		//Fonction permettant de retourner à la page précédente
  		this.navCtrl.pop();
  	}
 
  	recupererReservations(){
- 		//Fonction permettant de récupérer les ateliers en cours dans la bdd
+ 		//Fonction permettant de récupérer les réservations dans la bdd
  		this.authServiceProvider.request('workshop', 'reservations').then((result) => {
  			var data = JSON.parse(result['_body']).workshops;
  			this.reservations.push(data); //ajoute les reservations dans le tableau
@@ -84,14 +93,14 @@ import { AlertController } from 'ionic-angular';
  		
  		//Création d'une alerte pour demander confirmation
  		let alert = this.alertCtrl.create({
- 			title: 'Confirmer la desinscription',
- 			message: 'Voulez-vous vraiment vous desinscrire ?',
+ 			title: 'Confirmer la désinscription',
+ 			message: 'Voulez-vous vraiment vous désinscrire ?',
  			buttons: [
  			{
  				text: 'Annuler',
  				role: 'cancel',
  				handler: () => {
- 					console.log('Annulation de la desinscription');
+ 					console.log('Annulation de la désinscription');
  				}
  			},
  			{
@@ -115,8 +124,6 @@ import { AlertController } from 'ionic-angular';
  			]
  		});
  		alert.present();
-
-
  	}  
 
  }

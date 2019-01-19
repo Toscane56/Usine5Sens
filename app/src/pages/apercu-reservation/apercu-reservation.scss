@@ -1,29 +1,7 @@
-page-reservations {
-
-	.ion-md-menu:before {
-	    content: "\f32a";
-	    font-weight: bold;
-	}
-
+page-apercu-reservation {
 	body{
 		font-family: "Poppins";
 		font-weight: 400;
-	}
-
-	.inscription{
-	font-family: "Poppins";
-	text-align: center;
-	ion-card{
-		cursor: pointer;
-		margin: 0 12px 30px;
-		ion-avatar[item-start]{
-			margin: 8px 16px 8px 10px;
-		}
-		h2,p{
-			word-wrap: break-word;
-    		white-space: pre-wrap;
-		}
-	}
 	}
 
 	.title{
@@ -50,7 +28,7 @@ page-reservations {
 			}
 	
 		}
-		h2.name{
+		h2.name_workshop{
 			padding: 18px;
     		padding-left: 50px;
 		    span{
@@ -63,6 +41,20 @@ page-reservations {
 		font-family: "Poppins";
 		font-size:18px;
 		margin:0px;
+	}	
+
+
+	.atelier ion-col{
+		padding: 0px;
+		p{
+		    margin: 0px 15px 0px 0px;
+		    font-size: 14px;
+		    font-family: "Poppins";
+		    font-weight: 300;			
+		}
+		.description{
+			margin: 0px 15px 20px 0px;
+		}
 	}	
 
 	button.bouton-principal{
