@@ -109,20 +109,6 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
   }
 
 
-
- 	envoiDonneesReservation(){
- 		//Fonction permettant de créer un lien entre l'utilisateur et l'atelier réservé dans la base de données
- 	}  
-
- 	presentToastReservation() {
- 		//Définit le message de validation de la réservation
- 		let toast = this.toastCtrl.create({
- 			message: "Réservation effectuée !",
- 			duration: 3000
- 		});
- 		toast.present();
- 	}
-
 	  presentToastFormulaireIncomplet() {
 	    //Définit le message de refus de créer un utilisateur sans toutes les données
 	    let toast = this.toastCtrl.create({

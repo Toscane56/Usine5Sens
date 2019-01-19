@@ -115,7 +115,7 @@ export class AtelierChoixPage {
   presentToastReservationDejaEffectue() {
     //Définit le message de refus de refaire la réservation car l'atelier est déjà reservé
     let toast = this.toastCtrl.create({
-        message: "Atelier déjà réservée",
+        message: "Atelier déjà réservé",
         duration: 3000
       });
     toast.present();

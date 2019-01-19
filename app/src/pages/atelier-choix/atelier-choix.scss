@@ -43,43 +43,48 @@ page-atelier-choix {
 		margin:0px;
 	}	
 
-	ion-grid.introduction ion-row{
-		align-items: center;
-  		justify-content: center;
-		ion-col{
-			padding-right:10px;
-			div{
-				padding:20px 2px;
-				box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-				border-radius: 4px;
-				box-sizing: border-box;
-				background: #FFFFFF;
-				div.point_sense{
-					width: 18px;
-					padding:0px;
-					margin:0 auto 12px;
-					height: 18px;
-					filter: blur(2px);
-					border-radius: 50px;
-				}
-				p{
-					font-family: "Poppins";
-					font-size: 12px;
-					text-transform: lowercase;
-	    			text-align: center;
-					font-weight: 300;
-					line-height: 100%;
+	ion-grid.introduction {
+		    margin-top: -75px;
+		ion-row{
+			align-items: center;
+	  		justify-content: center;
+	  		padding:3px;
+			ion-col{
+				padding-right:3px;
+				div{
+					padding:20px 2px;
+					box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+					border-radius: 4px;
+					box-sizing: border-box;
+					background: #FFFFFF;
+					div.point_sense{
+						width: 18px;
+						padding:0px;
+						margin:0 auto 12px;
+						height: 18px;
+						filter: blur(2px);
+						box-shadow:none;
+						border-radius: 50px;
+					}
+					p{
+						font-family: "Poppins";
+						font-size: 12px;
+						text-transform: lowercase;
+		    			text-align: center;
+						font-weight: 300;
+						line-height: 100%;
 
-				}
-				h3{
-					text-transform:initial;
-					font-size:16px;
-					font-family: "Poppins";
-					font-weight: 400;
-					margin:0px 5px 0 0;		
-					
+					}
+					h3{
+						text-transform:initial;
+						font-size:16px;
+						font-family: "Poppins";
+						font-weight: 400;
+						margin:0px 5px 0 0;		
+						
+					}	
 				}	
-			}	
+			}
 		}
 	}
 
