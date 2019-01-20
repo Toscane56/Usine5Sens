@@ -49,7 +49,6 @@ export class HomePage {
     this.requestServiceProvider.request('exposition', 'index').then((result) => {
       var data = JSON.parse(result['_body']).exposition;
       this.expositions.push(data); //ajoute les expositions dans le tableau
-      //console.log(data);
       console.log("exposition "+ this.expositions);
     }, (error) => {
       //erreur coté serveur
@@ -59,7 +58,7 @@ export class HomePage {
   }
 
   recupererAtelier(){
-    //Fonction permettant de récupérer les ateliers en cours dans la bdd
+    //Fonction permettant de récupérer les ateliers de la journée dans la bdd
     this.requestServiceProvider.request('workshop', 'index').then((result) => {
       var data = JSON.parse(result['_body']).workshops;
       this.workshops.push(data); //ajoute les ateliers dans le tableau

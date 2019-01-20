@@ -1,8 +1,8 @@
 page-reservations {
 
 	.ion-md-menu:before {
-	    content: "\f32a";
-	    font-weight: bold;
+		content: "\f32a";
+		font-weight: bold;
 	}
 
 	body{
@@ -11,19 +11,19 @@ page-reservations {
 	}
 
 	.inscription{
-	font-family: "Poppins";
-	text-align: center;
-	ion-card{
-		cursor: pointer;
-		margin: 0 12px 30px;
-		ion-avatar[item-start]{
-			margin: 8px 16px 8px 10px;
+		font-family: "Poppins";
+		text-align: center;
+		ion-card{
+			cursor: pointer;
+			margin: 0 12px 30px;
+			ion-avatar[item-start]{
+				margin: 8px 16px 8px 10px;
+			}
+			h2,p{
+				word-wrap: break-word;
+				white-space: pre-wrap;
+			}
 		}
-		h2,p{
-			word-wrap: break-word;
-    		white-space: pre-wrap;
-		}
-	}
 	}
 
 	.title{
@@ -35,27 +35,26 @@ page-reservations {
 		h2{
 			color:#FFFFFF;
 			position: absolute;
-    		top: 0;		
+			top: 0;		
 			font-family: "Poppins";
 			text-transform: initial;
-		    font-size: 18px;
-		    font-weight: 700;
-		    margin: 8px 0 0 10px;
-		    text-align: left;
-		    ion-icon {
-		    	font-size: 17px;
-    			font-weight: bold;
-    			cursor: pointer;
-    			padding:20px;
+			font-size: 18px;
+			font-weight: 700;
+			margin: 8px 0 0 10px;
+			text-align: left;
+			ion-icon {
+				font-size: 17px;
+				font-weight: bold;
+				cursor: pointer;
+				padding:20px;
 			}
-	
 		}
 		h2.name{
 			padding: 18px;
-    		padding-left: 50px;
-		    span{
-		    	margin-left: 5px;
-		    } 			
+			padding-left: 50px;
+			span{
+				margin-left: 5px;
+			} 			
 		}
 	}
 
@@ -70,47 +69,43 @@ page-reservations {
 	}
 
 	.menu{
-	    float: left;
+		float: left;
 		padding: 20px 0px 0;
 		max-width: 80px;
 		.menu-principal, .menu-vertical{
-		    display: block;
+			display: block;
 			padding-left: 20px;
 			font-size: 25px;
 			a{
-			color:#000000;
+				color:#000000;
 			}
 		}
 		.menu-principal{
-		    margin-bottom: 25px;
+			margin-bottom: 25px;
 		}
 		.menu-vertical{
 			.trait_actif{
-			position: absolute;
-		    margin-top: 10px;
-		    margin-left: 12px;
-		    height: 55px;
-		    width: 16px;
-			background:#c0e8ff;
+				position: absolute;
+				margin-top: 10px;
+				margin-left: 12px;
+				height: 55px;
+				width: 16px;
+				background:#c0e8ff;
 			}
 			font-size: 17px;
 			font-family: "Poppins";
 			font-weight: 400;			
 			margin:25px 0;
 			a{
-			color:#000000;
-			writing-mode: vertical-lr;
-			-webkit-transform: rotate(180deg);
-			   -moz-transform: rotate(180deg);
+				color:#000000;
+				writing-mode: vertical-lr;
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
 				-ms-transform: rotate(180deg);
-				 -o-transform: rotate(180deg);
-					transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
 			}
 		}
-	}
-
-
-	@media screen and (min-width: 500px) {
 	}
 	
 	@media screen and (max-width: 400px) {

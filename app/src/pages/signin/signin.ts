@@ -54,13 +54,14 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
  	}
 
  	connexion(){
- 		//Fonction permettant d'enregistrer un nouveau utilisateur dans la base de données
+ 		//Fonction permettant de connecter un utilisateur
  		console.log(this.coData);
  		if(this.coData.email == "" || this.coData.password == "" ){
  			//Si au moins 1 des champs est vide
  			this.presentToastFormulaireIncomplet();
  			//Transmettre un message à l'utilisateur
  		}else{
+ 			//Sinon
  			//Envoi au serveur le json   
  			this.requestServiceProvider.request('user', 'login' ,this.coData).then((result) => {
  				console.log("J'ai envoyé les donnees.")
@@ -73,7 +74,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
  				this.authServiceProvider.firstname = firstname;
 
  				this.navCtrl.setRoot(HomePage);
- 				//sinon passer à l'écran suivant
+ 				//passer à l'écran de l'accueil en le réinitialisant
 
  			}, (error) => {
  				//erreur coté serveur

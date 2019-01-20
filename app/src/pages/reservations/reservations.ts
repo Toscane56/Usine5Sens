@@ -59,10 +59,10 @@ import { AlertController } from 'ionic-angular';
 
  	activerEcranApercuReservation(Reservation:any){
  		//Fonction permettant d'amener à la page d'aperçu de la réservation choisie
-    	//Envoie toutes les données de la réservation en question à la page suivante 		
+ 		//Envoie toutes les données de la réservation en question à la page suivante 		
  		this.navCtrl.push(ApercuReservationPage, {
-      Reservation:Reservation             
-    });
+ 			Reservation:Reservation             
+ 		});
  	}  	
 
  	retourPagePrecendente(){
@@ -75,9 +75,6 @@ import { AlertController } from 'ionic-angular';
  		this.authServiceProvider.request('workshop', 'reservations').then((result) => {
  			var data = JSON.parse(result['_body']).workshops;
  			this.reservations.push(data); //ajoute les reservations dans le tableau
-
- 			//console.log(data);
- 			//console.log("workshops "+ JSON.parse(result['_body']).workshops[1].senses[1].name);
  		}, (error) => {
  			//erreur coté serveur
  			console.log(error);
@@ -87,7 +84,6 @@ import { AlertController } from 'ionic-angular';
 
  	desinscription(reservationId){
  		//Fonction permettant de désinscrire l'utilisateur à un atelier
-
  		console.log(reservationId);
  		this.workshopId.workshop_id=reservationId;
  		
@@ -125,5 +121,4 @@ import { AlertController } from 'ionic-angular';
  		});
  		alert.present();
  	}  
-
  }

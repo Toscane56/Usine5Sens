@@ -29,11 +29,6 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
    constructor(public navCtrl: NavController, public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider, public toastCtrl: ToastController) {
    }
 
-   ionViewDidLoad() {
-     //console.log("token :"+this.authServiceProvider.token);
-     //console.log(this.authServiceProvider.email);
-   }
-
    activerEcranVisite(){
      //Fonction permettant d'amener à la page visite de l'Usine des 5 Sens
      this.navCtrl.push(VisitePage);
@@ -60,7 +55,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
    }
 
    connexion(){
-     //Fonction permettant d'enregistrer un nouveau utilisateur dans la base de données
+     //Fonction permettant de connecter l'utilisateur
      console.log(this.coData);
 
      if(this.coData.email == "" || this.coData.password == "" ){
@@ -69,7 +64,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
        this.presentToastFormulaireIncomplet();
        //Transmettre un message à l'utilisateur
      }else{
-       //Envoi au serveur le json   
+       //Sinon envoi au serveur le json   
        this.requestServiceProvider.request('user', 'login' ,this.coData).then((result) => {
          console.log("J'ai envoyé les donnees.")
          //Récupere le token de l'utilisateur
@@ -81,7 +76,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
          this.authServiceProvider.firstname = firstname;
 
          this.navCtrl.setRoot(GestionComptePage);
-         //sinon refresh la page
+         //Refresh la page
 
        }, (error) => {
          //erreur coté serveur

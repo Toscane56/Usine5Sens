@@ -28,11 +28,6 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
      this.recupererAtelier();
    }
 
-   ionViewDidLoad() {
-     console.log('ionViewDidLoad AteliersPage');
-     //console.log("token :"+this.authServiceProvider.token);
-   }
-
    activerEcranVisite(){
      //Fonction permettant d'amener à la page visite de l'Usine des 5 Sens
      this.navCtrl.push(VisitePage);
@@ -49,7 +44,7 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
    } 
 
    recupererAtelier(){
-     //Fonction permettant de récupérer les ateliers en cours dans la bdd
+     //Fonction permettant de récupérer les ateliers de la journée dans la bdd
      this.requestServiceProvider.request('workshop', 'index').then((result) => {
        var data = JSON.parse(result['_body']).workshops;
        this.workshops.push(data); //ajoute les ateliers dans le tableau

@@ -42,7 +42,6 @@ export class AtelierChoixPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AtelierChoixPage');
     console.log(this.workshopArray);
-    console.log(this.token);
   }
 
   StringObj(obj){
@@ -83,7 +82,7 @@ export class AtelierChoixPage {
     //Fonction permettant la réservation d'un atelier
     if (this.token == null) //si l'utilisateur n'est pas connecté
     {
-      this.navCtrl.push(SigninPage);
+      this.navCtrl.push(SigninPage); //mène vers l'écran pour se connecter
     }else{
       this.envoiDonneesReservation();
     }
@@ -112,7 +111,7 @@ export class AtelierChoixPage {
     //Envoi au serveur le json   
     this.authServiceProvider.request('workshop', 'book' , this.workshopId).then((result) => {
       console.log("J'ai envoyé les donnees.")
-      this.presentToastReservation();
+      this.presentToastReservation(); //Prévient l'utilisateur que l'atelier est reservé
     }, (error) => {
       //erreur coté serveur
       console.log(error);
@@ -139,7 +138,6 @@ export class AtelierChoixPage {
     toast.present();
   }
 
-
   recupererReservations(){
     //Fonction permettant de récupérer les réservations dans la bdd
     this.authServiceProvider.request('workshop', 'reservations').then((result) => {
@@ -147,13 +145,12 @@ export class AtelierChoixPage {
       this.reservations=data; //ajoute les reservations dans le tableau
       console.log(this.reservations);
       this.verificationReservation();
-      //console.log("workshops "+ JSON.parse(result['_body']).workshops[1].senses[1].name);
+
     }, (error) => {
       //erreur coté serveur
       console.log(error);
       console.log("ça ne marche pas");
     });
   }
-
 
 }

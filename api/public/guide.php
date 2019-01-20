@@ -88,7 +88,7 @@ function renderSuccess($data)
             <td>exposition</td>
             <td>index</td>
             <td></td>
-            <td><pre><?= renderSuccess(['exposition' => ['id' => '**', 'name' => "L'eau", 'description' => 'Lorem ipsum', 'starting_at' => '2019-01-10', 'ending_at' => '2019-02-14']]) ?></pre></td>
+            <td><pre><?= renderSuccess(['exposition' => ['id' => '**', 'name' => "L'eau", 'img' => "water.png", 'description' => 'Nee sur le site de l ancienne usine...', 'starting_at' => '2019-01-03', 'ending_at' => '2019-03-03']]) ?></pre></td>
         </tr>
     </table>
     <h2>Workshops</h2>
@@ -106,9 +106,9 @@ function renderSuccess($data)
             <td>index</td>
             <td></td>
             <td><pre><?= renderSuccess(['workshops' => [
-                        ['id' => '**', 'name' => "L'eau", 'description' => 'Lorem ipsum', 'starting_at' => '2019-01-10', 'ending_at' => '2019-02-14', 'duration' => 2, 'scheduled_at' => '14:00', 'senses' => [
-                            ['id' => '**', 'name' => 'Toucher'],
-                            ['id' => '**', 'name' => 'Odorat']
+                        ['id' => '**', 'name' => "Photographie et nature", 'img' => "atelier_photo.jpg", 'description' => 'Apprenez a faire de jolies photographies...', 'starting_at' => '2019-01-01', 'ending_at' => '2019-06-19', 'duration' => 2, 'scheduled_at' => '16:00:00', 'senses' => [
+                            ['id' => '**', 'name' => 'vue'],
+                            ['id' => '**', 'name' => 'toucher']
                         ]]
                     ]]) ?></pre></td>
         </tr>
@@ -118,13 +118,14 @@ function renderSuccess($data)
             <td>reservations</td>
             <td></td>
             <td><pre><?= renderSuccess(['workshops' => [
-                        ['id' => '**', 'date' => '2019-01-20', 'name' => "L'eau", 'description' => 'Lorem ipsum', 'starting_at' => '2019-01-10', 'ending_at' => '2019-02-14', 'duration' => 2, 'scheduled_at' => '14:00', 'senses' => [
-                            ['id' => '**', 'name' => 'Toucher'],
-                            ['id' => '**', 'name' => 'Odorat']
+                        ['id' => '**', 'date' => '2019-01-19', 'name' => "Photographie et nature", 'img' => "atelier_photo.jpg", 'description' => 'Apprenez a faire de jolies photographies...', 'starting_at' => '2019-01-01', 'ending_at' => '2019-06-19', 'duration' => 2, 'scheduled_at' => '16:00:00', 'senses' => [
+                            ['id' => '**', 'name' => 'vue'],
+                            ['id' => '**', 'name' => 'toucher']
                         ]],
-                        ['id' => '**', 'date' => '2019-01-20', 'name' => "Le feu", 'description' => 'Lorem ipsum', 'starting_at' => '2019-01-05', 'ending_at' => '2019-02-13', 'duration' => 1, 'scheduled_at' => '16:00', 'senses' => [
-                            ['id' => '**', 'name' => 'Toucher'],
-                            ['id' => '**', 'name' => 'Ouie']
+                        ['id' => '**', 'date' => '2019-01-19', 'name' => "Atelier cuisine", 'img' => "atelier_cuisine.jpg", 'description' => 'Au menu de nos cours, decouvrez des saveurs...', 'starting_at' => '2019-01-01', 'ending_at' => '2019-08-15', 'duration' => 3, 'scheduled_at' => '11:00:00', 'senses' => [
+                            ['id' => '**', 'name' => 'toucher'],
+                            ['id' => '**', 'name' => 'goût'],
+                            ['id' => '**', 'name' => 'odorat']
                         ]]
                     ]]) ?></pre></td>
         </tr>

@@ -32,7 +32,7 @@ import { AlertController } from 'ionic-angular';
    constructor(private alertCtrl: AlertController, public navCtrl: NavController, public toastCtrl: ToastController, public navParams: NavParams,public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
      this.workshopArray = navParams.get('Reservation'); //récupération du tableau workshop de la page précédente 
      this.workshopId.workshop_id = this.workshopArray.id ; //récupération de l'id de l'atelier et ajout de la valeur 
-                                                           //à workshop_id
+     //à workshop_id
    }
 
    ionViewDidLoad() {
@@ -98,8 +98,6 @@ import { AlertController } from 'ionic-angular';
              console.log(error);
              console.log("ça ne marche pas. L'id du workshop est : "+this.workshopId);
            });
-
-
          }
        }
        ]

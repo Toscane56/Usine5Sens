@@ -34,8 +34,6 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
 
  	ionViewDidLoad() {
  		console.log('ionViewDidLoad AtelierChoixPage');
- 		console.log(this.token);
-
  	}
 
  	StringObj(obj){
@@ -73,50 +71,44 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
  	}  
 
  	recupererProfil(){
-    //Fonction permettant de récupérer le profil de l'utilisateur dans la bdd
-    this.authServiceProvider.request('user', 'profile').then((result) => {
-        var data = JSON.parse(result['_body']).user;
-        this.profilData = data;
-        //console.log(data);
-        console.log("profil "+ this.profilData);
-      }, (error) => {
-      //erreur coté serveur
-        console.log(error);
-        console.log("ça ne marche pas");
-    });
-  }
+     //Fonction permettant de récupérer le profil de l'utilisateur dans la bdd
+     this.authServiceProvider.request('user', 'profile').then((result) => {
+       var data = JSON.parse(result['_body']).user;
+       this.profilData = data;
+       console.log("profil "+ this.profilData);
+     }, (error) => {
+       //erreur coté serveur
+       console.log(error);
+       console.log("ça ne marche pas");
+     });
+   }
 
- 	updateProfil(){
-    //Fonction permettant de mettre à jour le profil de l'utilisateur dans la bdd
+   updateProfil(){
+     //Fonction permettant de mettre à jour le profil de l'utilisateur dans la bdd
+     this.authServiceProvider.request('user', 'update', this.profilData).then((result) => {
+       console.log("J'ai envoyé les donnees.")
 
-    this.authServiceProvider.request('user', 'update', this.profilData).then((result) => {
-	console.log("J'ai envoyé les donnees.")
+       //Récupere son prenom
+       var firstname = JSON.parse(result['_body']).user.firstname;          
+       this.authServiceProvider.firstname = firstname;
 
-      //Récupere son prenom
-      var firstname = JSON.parse(result['_body']).user.firstname;          
-      this.authServiceProvider.firstname = firstname;
-
-        this.navCtrl.push(GestionComptePage);
-      //sinon passer à l'écran suivant
-
-
-      }, (error) => {
-      //erreur coté serveur
-      	this.presentToastFormulaireIncomplet();
-        console.log(error);
-        console.log("ça ne marche pas");
-    });
-  }
+       this.navCtrl.push(GestionComptePage);
+       //passer à l'écran de gestion de compte (menu principal)
+     }, (error) => {
+       //erreur coté serveur
+       this.presentToastFormulaireIncomplet();
+       console.log(error);
+       console.log("ça ne marche pas");
+     });
+   }
 
 
-	  presentToastFormulaireIncomplet() {
-	    //Définit le message de refus de créer un utilisateur sans toutes les données
-	    let toast = this.toastCtrl.create({
-	        message: "Veuillez remplir tout le formulaire",
-	        duration: 3000
-	      });
-	    toast.present();
-	  }
-
-
+   presentToastFormulaireIncomplet() {
+     //Définit le message de refus de créer un utilisateur sans toutes les données
+     let toast = this.toastCtrl.create({
+       message: "Veuillez remplir tout le formulaire",
+       duration: 3000
+     });
+     toast.present();
+   }
  }

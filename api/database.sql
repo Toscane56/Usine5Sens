@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 19 jan. 2019 à 23:27
+-- Généré le :  sam. 19 jan. 2019 à 23:37
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `password`, `token`) VALUES
-(1, 'jeanne.dupont@gmail.com', 'Jeanne', 'Dupont', 'a7ee1890faa97997816b6a57cf4b9546d3553309', '40bf8e8aeb910829394eac1f3f8504f9');
+(1, 'jean@dupont.fr', 'Jean', 'Dupont', 'cd234f27061562375aec384eca2e5640153848d8', '1ff4b976a4c62aba2a2ce7d059eca77b');
 
 -- --------------------------------------------------------
 
