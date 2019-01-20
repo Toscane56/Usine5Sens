@@ -32,6 +32,7 @@ class Controller
     // Request
 
     public function getHeader($name)
+    //Fonction permettant d'établir le Header présent dans les requetes
     {
         return isset($this->headers[$name]) ? $this->headers[$name] : null;
     }
@@ -56,12 +57,13 @@ class Controller
     }
 
     public function getUser()
+    // Fonction permettant de connaitre l'utilisateur connecté (établir une session grâce au token)
     {
-        $token = $this->getToken();
-        if (empty($token)) return $this->error('Invalid token');
+        $token = $this->getToken(); //récupère le token
+        if (empty($token)) return $this->error('Invalid token'); //envoie un message d'erreur si le token n'est pas valide
 
-        $user = $this->db->fetch('users', ['token' => $token]);
-        if (!$user) return $this->error('Invalid token');
+        $user = $this->db->fetch('users', ['token' => $token]); //vérifie que le token correspond à celui de la bdd associé à un utilisateur
+        if (!$user) return $this->error('Invalid token'); //envoie un message d'erreur si le token n'est pas valide
 
         return $user;
     }
@@ -69,21 +71,24 @@ class Controller
     // Responses
 
     public function success($message, $data = [])
+    // Fonction permettant d'envoyer le message lorsque la requete réussie
     {
         return $this->send(array_merge(['status' => 'success', 'message' => $message], $data));
     }
 
     public function error($message, $data = [], $code = 400)
+    // Fonction permettant d'envoyer un message d'erreur lorsque la requete échoue
     {
         return $this->send(array_merge(['status' => 'error', 'message' => $message], $data), $code);
     }
 
     public function send($data, $code = 200)
+    // Fonction permettant de convertir en fichier json le tableau de données avant l'envoi
     {
         if ($this->testing) return $data;
         http_response_code($code);
         header('content-type: application/json');
-        echo json_encode($data);
+        echo json_encode($data); //data convertie en json
         die;
     }
 }

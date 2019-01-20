@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+//Définition de tous les headers nécessaires
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, OPTIONS, POST');
 header('Access-Control-Allow-Headers: Access-Control-Request-Headers, Access-Control-Request-Method, referer, user-agent, content-type, X-AUTH-TOKEN');
@@ -14,6 +14,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'options')
 }
 
 $endpoints = [
+    //association des entités aux actions possibles
     'user' => ['register', 'login', 'profile', 'update'],
     'exposition' => ['index'],
     'workshop' => ['index', 'book', 'remove', 'reservations']
