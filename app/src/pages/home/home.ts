@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import{VisitePage} from "../visite/visite";
 import{AteliersPage} from "../ateliers/ateliers";
 import{AtelierChoixPage} from "../atelier-choix/atelier-choix";
@@ -19,7 +19,7 @@ export class HomePage {
   expositions = [];
   workshops = [];
 
-  constructor(public navCtrl: NavController,  private params: NavParams , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
+  constructor(public navCtrl: NavController, public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
     //console.log("token :"+this.authServiceProvider.token);
     this.recupererExposition();
     this.recupererAtelier();

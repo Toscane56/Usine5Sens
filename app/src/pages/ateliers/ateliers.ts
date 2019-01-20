@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import{VisitePage} from "../visite/visite";
 import{GestionComptePage} from "../gestion-compte/gestion-compte";
 import{HomePage} from "../home/home";
@@ -24,7 +24,7 @@ import { RequestServiceProvider } from '../../providers/request-service/request-
    token = this.authServiceProvider.token;
    workshops = [];
 
-   constructor(public navCtrl: NavController,  private params: NavParams , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
+   constructor(public navCtrl: NavController , public requestServiceProvider : RequestServiceProvider, public authServiceProvider : AuthServiceProvider) {
      this.recupererAtelier();
    }
 

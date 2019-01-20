@@ -4,7 +4,6 @@ import{AteliersPage} from "../ateliers/ateliers";
 import { ToastController } from 'ionic-angular';
 import{GestionComptePage} from "../gestion-compte/gestion-compte";
 import{HomePage} from "../home/home";
-import{SigninPage} from "../signin/signin";
 import{VisitePage} from "../visite/visite";
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { RequestServiceProvider } from '../../providers/request-service/request-service';

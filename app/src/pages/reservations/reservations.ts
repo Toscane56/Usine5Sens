@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{AteliersPage} from "../ateliers/ateliers";
 import{GestionComptePage} from "../gestion-compte/gestion-compte";
 import{HomePage} from "../home/home";
-import{SigninPage} from "../signin/signin";
 import{VisitePage} from "../visite/visite";
 import{ApercuReservationPage} from "../apercu-reservation/apercu-reservation";
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
